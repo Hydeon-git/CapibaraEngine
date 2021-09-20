@@ -4,6 +4,8 @@
 #include <gl/GLU.h>
 #include "Primitive.h"
 #include "glut/glut.h"
+#include "Globals.h"
+#include "Application.h"
 
 #pragma comment (lib, "glut/glut32.lib")
 
@@ -15,6 +17,11 @@ Primitive::Primitive() : transform(IdentityMatrix), color(White), wire(false), a
 PrimitiveTypes Primitive::GetType() const
 {
 	return type;
+}
+
+void Primitive::Update()
+{
+    body.GetTransform(&transform);
 }
 
 // ------------------------------------------------------------
@@ -73,7 +80,7 @@ void Primitive::InnerRender() const
 	glPointSize(5.0f);
 
 	glBegin(GL_POINTS);
-
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	glVertex3f(0.0f, 0.0f, 0.0f);
 
 	glEnd();
@@ -85,18 +92,21 @@ void Primitive::InnerRender() const
 void Primitive::SetPos(float x, float y, float z)
 {
 	transform.translate(x, y, z);
+	body.SetTransform(&transform);
 }
 
 // ------------------------------------------------------------
 void Primitive::SetRotation(float angle, const vec3 &u)
 {
 	transform.rotate(angle, u);
+	body.SetTransform(&transform);
 }
 
 // ------------------------------------------------------------
 void Primitive::Scale(float x, float y, float z)
 {
 	transform.scale(x, y, z);
+	body.SetTransform(&transform);
 }
 
 // CUBE ============================================
@@ -105,9 +115,21 @@ Cube::Cube() : Primitive(), size(1.0f, 1.0f, 1.0f)
 	type = PrimitiveTypes::Primitive_Cube;
 }
 
+Cube::Cube(const vec3& _size, float mass) : Primitive(), size(_size)
+{
+	type = PrimitiveTypes::Primitive_Cube;
+	body.SetBody(this, mass);
+}
+
+
 Cube::Cube(float sizeX, float sizeY, float sizeZ) : Primitive(), size(sizeX, sizeY, sizeZ)
 {
 	type = PrimitiveTypes::Primitive_Cube;
+}
+
+vec3 Cube::GetSize() const
+{
+	return size;
 }
 
 void Cube::InnerRender() const
@@ -120,39 +142,39 @@ void Cube::InnerRender() const
 
 	glNormal3f(0.0f, 0.0f, 1.0f);
 	glVertex3f(-sx, -sy, sz);
-	glVertex3f( sx, -sy, sz);
-	glVertex3f( sx,  sy, sz);
-	glVertex3f(-sx,  sy, sz);
+	glVertex3f(sx, -sy, sz);
+	glVertex3f(sx, sy, sz);
+	glVertex3f(-sx, sy, sz);
 
 	glNormal3f(0.0f, 0.0f, -1.0f);
-	glVertex3f( sx, -sy, -sz);
+	glVertex3f(sx, -sy, -sz);
 	glVertex3f(-sx, -sy, -sz);
-	glVertex3f(-sx,  sy, -sz);
-	glVertex3f( sx,  sy, -sz);
+	glVertex3f(-sx, sy, -sz);
+	glVertex3f(sx, sy, -sz);
 
 	glNormal3f(1.0f, 0.0f, 0.0f);
-	glVertex3f(sx, -sy,  sz);
+	glVertex3f(sx, -sy, sz);
 	glVertex3f(sx, -sy, -sz);
-	glVertex3f(sx,  sy, -sz);
-	glVertex3f(sx,  sy,  sz);
+	glVertex3f(sx, sy, -sz);
+	glVertex3f(sx, sy, sz);
 
 	glNormal3f(-1.0f, 0.0f, 0.0f);
 	glVertex3f(-sx, -sy, -sz);
-	glVertex3f(-sx, -sy,  sz);
-	glVertex3f(-sx,  sy,  sz);
-	glVertex3f(-sx,  sy, -sz);
+	glVertex3f(-sx, -sy, sz);
+	glVertex3f(-sx, sy, sz);
+	glVertex3f(-sx, sy, -sz);
 
 	glNormal3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(-sx, sy,  sz);
-	glVertex3f( sx, sy,  sz);
-	glVertex3f( sx, sy, -sz);
+	glVertex3f(-sx, sy, sz);
+	glVertex3f(sx, sy, sz);
+	glVertex3f(sx, sy, -sz);
 	glVertex3f(-sx, sy, -sz);
 
 	glNormal3f(0.0f, -1.0f, 0.0f);
 	glVertex3f(-sx, -sy, -sz);
-	glVertex3f( sx, -sy, -sz);
-	glVertex3f( sx, -sy,  sz);
-	glVertex3f(-sx, -sy,  sz);
+	glVertex3f(sx, -sy, -sz);
+	glVertex3f(sx, -sy, sz);
+	glVertex3f(-sx, -sy, sz);
 
 	glEnd();
 }
@@ -166,6 +188,17 @@ Sphere::Sphere() : Primitive(), radius(1.0f)
 Sphere::Sphere(float radius) : Primitive(), radius(radius)
 {
 	type = PrimitiveTypes::Primitive_Sphere;
+}
+
+Sphere::Sphere(float _radius, float mass) : Primitive(), radius(_radius)
+{
+    type = PrimitiveTypes::Primitive_Sphere;
+    body.SetBody(this, mass);
+}
+
+float Sphere::GetRadius() const
+{
+    return radius;
 }
 
 void Sphere::InnerRender() const
@@ -184,7 +217,22 @@ Cylinder::Cylinder(float radius, float height) : Primitive(), radius(radius), he
 {
 	type = PrimitiveTypes::Primitive_Cylinder;
 }
+float Cylinder::GetRadius() const
+{
+	return radius;
+}
 
+float Cylinder::GetHeight() const
+{
+	return height;
+}
+void Cylinder::SetRadius(float n_radius) {
+	radius = n_radius;
+}
+
+void Cylinder::SetHeight(float n_height) {
+	height = n_height;
+}
 void Cylinder::InnerRender() const
 {
 	int n = 30;

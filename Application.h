@@ -10,6 +10,8 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
+#include "ModulePhysics3D.h"
+#include "ModulePlayer.h"
 
 class Application
 {
@@ -20,9 +22,16 @@ public:
 	ModuleSceneIntro* scene_intro;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
+	ModulePhysics3D* physics;
+	ModulePlayer* player;
+
+    bool debug;
+    bool renderPrimitives;
 
 private:
 
+	Timer	ms_timer;
+	float	dt;
 	p2List<Module*> list_modules;
 
 public:

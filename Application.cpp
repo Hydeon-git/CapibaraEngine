@@ -1,13 +1,15 @@
 #include "Application.h"
 
-Application::Application()
+Application::Application() : debug(false), renderPrimitives(true), dt(0.16f)
 {
-	window = new ModuleWindow(this);
-	input = new ModuleInput(this);
-	audio = new ModuleAudio(this, true);
-	scene_intro = new ModuleSceneIntro(this);
-	renderer3D = new ModuleRenderer3D(this);
-	camera = new ModuleCamera3D(this);
+    window = new ModuleWindow();
+	input = new ModuleInput();
+	audio = new ModuleAudio(true);
+	scene_intro = new ModuleSceneIntro();
+	renderer3D = new ModuleRenderer3D();
+	camera = new ModuleCamera3D();
+	physics = new ModulePhysics3D();
+	player = new ModulePlayer();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -15,13 +17,17 @@ Application::Application()
 
 	// Main Modules
 	AddModule(window);
-	AddModule(renderer3D);
 	AddModule(camera);
 	AddModule(input);
 	AddModule(audio);
+	AddModule(physics);
 	
 	// Scenes
 	AddModule(scene_intro);
+	AddModule(player);
+
+	// Renderer last!
+	AddModule(renderer3D);
 }
 
 Application::~Application()
@@ -38,6 +44,8 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
+
+    App = this;
 
 	// Call Init() in all modules
 	p2List_item<Module*>* item = list_modules.getFirst();
@@ -58,13 +66,15 @@ bool Application::Init()
 		item = item->next;
 	}
 	
+	ms_timer.Start();
 	return ret;
 }
-
 
 // ---------------------------------------------
 void Application::PrepareUpdate()
 {
+	dt = (float)ms_timer.Read() / 1000.0f;
+	ms_timer.Start();
 }
 
 // ---------------------------------------------
@@ -82,7 +92,7 @@ update_status Application::Update()
 	
 	while(item != NULL && ret == UPDATE_CONTINUE)
 	{
-		ret = item->data->PreUpdate();
+		ret = item->data->PreUpdate(dt);
 		item = item->next;
 	}
 
@@ -90,7 +100,7 @@ update_status Application::Update()
 
 	while(item != NULL && ret == UPDATE_CONTINUE)
 	{
-		ret = item->data->Update();
+		ret = item->data->Update(dt);
 		item = item->next;
 	}
 
@@ -98,7 +108,7 @@ update_status Application::Update()
 
 	while(item != NULL && ret == UPDATE_CONTINUE)
 	{
-		ret = item->data->PostUpdate();
+		ret = item->data->PostUpdate(dt);
 		item = item->next;
 	}
 
@@ -123,3 +133,5 @@ void Application::AddModule(Module* mod)
 {
 	list_modules.add(mod);
 }
+
+Application* App = nullptr;

@@ -1,6 +1,7 @@
 #pragma once
 
-class Application;
+//class Application;
+struct PhysBody3D;
 
 class Module
 {
@@ -8,9 +9,10 @@ private :
 	bool enabled;
 
 public:
-	Application* App;
+	//Application* App;
 
-	Module(Application* parent, bool start_enabled = true) : App(parent)
+	//Module(Application* parent, bool start_enabled = true) : App(parent)
+    Module(bool start_enabled = true) : enabled(start_enabled)
 	{}
 
 	virtual ~Module()
@@ -26,17 +28,17 @@ public:
 		return true;
 	}
 
-	virtual update_status PreUpdate()
+	virtual update_status PreUpdate(float dt)
 	{
 		return UPDATE_CONTINUE;
 	}
 
-	virtual update_status Update()
+	virtual update_status Update(float dt)
 	{
 		return UPDATE_CONTINUE;
 	}
 
-	virtual update_status PostUpdate()
+	virtual update_status PostUpdate(float dt)
 	{
 		return UPDATE_CONTINUE;
 	}
@@ -45,4 +47,7 @@ public:
 	{ 
 		return true; 
 	}
+
+	virtual void OnCollision(PhysBody3D* body1, PhysBody3D* body2)
+	{}
 };

@@ -4,7 +4,7 @@
 struct Color
 {
 	float r, g, b, a;
-	
+
 	Color() : r(0.0f), g(0.0f), b(0.0f), a(1.0f)
 	{}
 
@@ -28,5 +28,14 @@ struct Color
 extern Color Red;
 extern Color Green;
 extern Color Blue;
+extern Color DarkBlue;
 extern Color Black;
 extern Color White;
+extern Color Yellow;
+extern Color Orange;
+extern Color Gray;
+extern Color Beige;
+extern Color Brown;
+extern Color Turquoise;
+extern Color Sky;
+extern Color Pink;
