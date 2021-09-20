@@ -10,7 +10,7 @@ class ModuleAudio : public Module
 {
 public:
 
-	ModuleAudio(bool start_enabled = true);
+	ModuleAudio(Application* app, bool start_enabled = true);
 	~ModuleAudio();
 
 	bool Init();
@@ -18,18 +18,16 @@ public:
 
 	// Play a music file
 	bool PlayMusic(const char* path, float fade_time = DEFAULT_MUSIC_FADE_TIME);
-	bool StopMusic();
 
 	// Load a WAV in memory
 	unsigned int LoadFx(const char* path);
 
 	// Play a previously loaded WAV
 	bool PlayFx(unsigned int fx, int repeat = 0);
-	bool StopFx(unsigned int fx);
 
 private:
 
-	Mix_Music* music;
+	Mix_Music*			music;
 	p2List<Mix_Chunk*>	fx;
 };
 

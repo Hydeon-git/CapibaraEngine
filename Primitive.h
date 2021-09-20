@@ -2,7 +2,6 @@
 #pragma once
 #include "glmath.h"
 #include "Color.h"
-#include "PhysBody3D.h"
 
 enum PrimitiveTypes
 {
@@ -20,8 +19,6 @@ public:
 
 	Primitive();
 
-    void Update();
-
 	virtual void	Render() const;
 	virtual void	InnerRender() const;
 	void			SetPos(float x, float y, float z);
@@ -35,8 +32,6 @@ public:
 	mat4x4 transform;
 	bool axis,wire;
 
-    PhysBody3D body;
-
 protected:
 	PrimitiveTypes type;
 };
@@ -46,9 +41,7 @@ class Cube : public Primitive
 {
 public :
 	Cube();
-	Cube(const vec3& size = vec3(1.f, 1.f, 1.f), float mass = 1.f);
 	Cube(float sizeX, float sizeY, float sizeZ);
-	vec3 GetSize() const;
 	void InnerRender() const;
 public:
 	vec3 size;
@@ -60,8 +53,6 @@ class Sphere : public Primitive
 public:
 	Sphere();
 	Sphere(float radius);
-    Sphere(float _radius, float mass);
-    float GetRadius() const;
 	void InnerRender() const;
 public:
 	float radius;
@@ -73,11 +64,6 @@ class Cylinder : public Primitive
 public:
 	Cylinder();
 	Cylinder(float radius, float height);
-
-	float GetRadius() const;
-	float GetHeight() const;
-	void SetRadius(float radius);
-	void SetHeight(float height);
 	void InnerRender() const;
 public:
 	float radius;

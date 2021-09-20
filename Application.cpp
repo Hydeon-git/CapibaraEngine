@@ -1,15 +1,14 @@
 #include "Application.h"
 
-Application::Application() : debug(false), renderPrimitives(true), dt(0.16f)
+Application::Application()
 {
-    window = new ModuleWindow();
-	input = new ModuleInput();
-	audio = new ModuleAudio(true);
-	scene_intro = new ModuleSceneIntro();
-	renderer3D = new ModuleRenderer3D();
-	camera = new ModuleCamera3D();
-	physics = new ModulePhysics3D();
-	player = new ModulePlayer();
+	window = new ModuleWindow(this);
+	input = new ModuleInput(this);
+	audio = new ModuleAudio(this, true);
+	scene_intro = new ModuleSceneIntro(this);
+	renderer3D = new ModuleRenderer3D(this);
+	camera = new ModuleCamera3D(this);
+
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -20,11 +19,10 @@ Application::Application() : debug(false), renderPrimitives(true), dt(0.16f)
 	AddModule(camera);
 	AddModule(input);
 	AddModule(audio);
-	AddModule(physics);
 	
 	// Scenes
 	AddModule(scene_intro);
-	AddModule(player);
+
 
 	// Renderer last!
 	AddModule(renderer3D);
@@ -44,8 +42,6 @@ Application::~Application()
 bool Application::Init()
 {
 	bool ret = true;
-
-    App = this;
 
 	// Call Init() in all modules
 	p2List_item<Module*>* item = list_modules.getFirst();
@@ -133,5 +129,3 @@ void Application::AddModule(Module* mod)
 {
 	list_modules.add(mod);
 }
-
-Application* App = nullptr;
