@@ -78,9 +78,6 @@
     <ClInclude Include="imgui.h">
       <Filter>Sources\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="imgui_impl_win32.h">
-      <Filter>Sources\imgui</Filter>
-    </ClInclude>
     <ClInclude Include="imconfig.h">
       <Filter>Sources\imgui</Filter>
     </ClInclude>
@@ -127,9 +124,6 @@
     </ClCompile>
     <ClCompile Include="ModuleSceneIntro.cpp">
       <Filter>Sources\Modules\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui.cpp">
-      <Filter>Sources\imgui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

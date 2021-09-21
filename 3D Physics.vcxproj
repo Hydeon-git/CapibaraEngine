@@ -79,7 +79,6 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
-    <ClInclude Include="imgui_impl_win32.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="ModuleCamera3D.h" />
     <ClInclude Include="ModuleRenderer3D.h" />
@@ -98,7 +97,6 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="glmath.cpp" />
-    <ClCompile Include="imgui.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="log.cpp" />
     <ClCompile Include="Main.cpp" />
