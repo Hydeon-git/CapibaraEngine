@@ -1,8 +1,24 @@
 // dear imgui, v1.84
 // (headers)
 
+// Help:
+// - Read FAQ at http://dearimgui.org/faq
+// - Newcomers, read 'Programmer guide' in imgui.cpp for notes on how to setup Dear ImGui in your codebase.
+// - Call and read ImGui::ShowDemoWindow() in imgui_demo.cpp. All applications in examples/ are doing that.
+// Read imgui.cpp for details, links and comments.
+
+// Resources:
+// - FAQ                   http://dearimgui.org/faq
+// - Homepage & latest     https://github.com/ocornut/imgui
+// - Releases & changelog  https://github.com/ocornut/imgui/releases
+// - Gallery               https://github.com/ocornut/imgui/issues/4451 (please post your screenshots/video there!)
+// - Wiki                  https://github.com/ocornut/imgui/wiki (lots of good stuff there)
+// - Glossary              https://github.com/ocornut/imgui/wiki/Glossary
+// - Issues & support      https://github.com/ocornut/imgui/issues
+// - Discussions           https://github.com/ocornut/imgui/discussions
 
 /*
+
 Index of this file:
 // [SECTION] Header mess
 // [SECTION] Forward declarations and basic types
@@ -17,6 +33,7 @@ Index of this file:
 // [SECTION] Font API (ImFontConfig, ImFontGlyph, ImFontGlyphRangesBuilder, ImFontAtlasFlags, ImFontAtlas, ImFont)
 // [SECTION] Viewports (ImGuiViewportFlags, ImGuiViewport)
 // [SECTION] Obsolete functions and types
+
 */
 
 #pragma once

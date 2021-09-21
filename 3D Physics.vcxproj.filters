@@ -75,10 +75,16 @@
     <ClInclude Include="Timer.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="imgui.h">
+    <ClInclude Include="imgui\imconfig.h">
       <Filter>Sources\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="imconfig.h">
+    <ClInclude Include="imgui\imgui.h">
+      <Filter>Sources\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_opengl2.h">
+      <Filter>Sources\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui\imgui_impl_sdl.h">
       <Filter>Sources\imgui</Filter>
     </ClInclude>
   </ItemGroup>
@@ -124,6 +130,12 @@
     </ClCompile>
     <ClCompile Include="ModuleSceneIntro.cpp">
       <Filter>Sources\Modules\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_opengl2.cpp">
+      <Filter>Sources\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_sdl.cpp">
+      <Filter>Sources\imgui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,7 +10,6 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
-#include "imgui.h"
 
 class Application
 {
