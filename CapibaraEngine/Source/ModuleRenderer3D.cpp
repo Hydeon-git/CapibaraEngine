@@ -14,13 +14,10 @@
 #pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
 
-ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
-{
-}
-
+// Constructor
+ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled) {}
 // Destructor
-ModuleRenderer3D::~ModuleRenderer3D()
-{}
+ModuleRenderer3D::~ModuleRenderer3D() {}
 
 // Called before render is available
 bool ModuleRenderer3D::Init()
@@ -40,20 +37,19 @@ bool ModuleRenderer3D::Init()
 	{
 		//Use Vsync
 		if(VSYNC && SDL_GL_SetSwapInterval(1) < 0)
-			LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
-		ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-		ImGui::StyleColorsDark();
-
-		ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
-		ImGui_ImplOpenGL2_Init();
+			LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());		
 
 		//Initialize Projection Matrix
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
+
+		// Imgui initialization
+		IMGUI_CHECKVERSION();
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		ImGui::StyleColorsDark();
+		ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
+		ImGui_ImplOpenGL2_Init();
 
 		//Check for error
 		GLenum error = glGetError();
@@ -132,12 +128,21 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 
+	// Imgui NewFrame()
+	ImGui_ImplOpenGL2_NewFrame();
+	ImGui_ImplSDL2_NewFrame();
+	ImGui::NewFrame();
+
 	return UPDATE_CONTINUE;
 }
 
 // PostUpdate present buffer to screen
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
+	// Imgui render
+	ImGui::Render();
+	ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
+	
 	SDL_GL_SwapWindow(App->window->window);
 	return UPDATE_CONTINUE;
 }
@@ -147,11 +152,15 @@ bool ModuleRenderer3D::CleanUp()
 {
 	LOG("Destroying 3D Renderer");
 
-	SDL_GL_DeleteContext(context);
+	// CleanUp imgui
+	ImGui_ImplOpenGL2_Shutdown();
+	ImGui_ImplSDL2_Shutdown();
+	ImGui::DestroyContext();
 
+	// Deleting context
+	SDL_GL_DeleteContext(context);
 	return true;
 }
-
 
 void ModuleRenderer3D::OnResize(int width, int height)
 {

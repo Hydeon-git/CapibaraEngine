@@ -339,7 +339,7 @@ static void ImGui_ImplSDL2_UpdateMousePosAndButtons()
         // Single-viewport mode: mouse position in client window coordinates (io.MousePos is (0,0) when the mouse is on the upper-left corner of the app window)
         // Unlike local position obtained earlier this will be valid when straying out of bounds.
         int mouse_x_global, mouse_y_global;
-        //SDL_GetGlobalMouseState(&mouse_x_global, &mouse_y_global);
+        SDL_GetGlobalMouseState(&mouse_x_global, &mouse_y_global);
         int window_x, window_y;
         SDL_GetWindowPosition(mouse_window, &window_x, &window_y);
         io.MousePos = ImVec2((float)(mouse_x_global - window_x), (float)(mouse_y_global - window_y));

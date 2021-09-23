@@ -9,12 +9,8 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl2.h"
 
-ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
-{
-}
-
-ModuleSceneIntro::~ModuleSceneIntro()
-{}
+ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled) {}
+ModuleSceneIntro::~ModuleSceneIntro() {}
 
 // Load assets
 bool ModuleSceneIntro::Start()
@@ -27,15 +23,6 @@ bool ModuleSceneIntro::Start()
 	return ret;
 }
 
-// Load assets
-bool ModuleSceneIntro::CleanUp()
-{
-	LOG("Unloading Intro scene");
-
-	return true;
-}
-
-// Update: draw background
 update_status ModuleSceneIntro::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
@@ -45,8 +32,8 @@ update_status ModuleSceneIntro::Update(float dt)
 	return UPDATE_CONTINUE;
 }
 
-update_status ModuleSceneIntro::PostUpdate()
-{
+update_status ModuleSceneIntro::PostUpdate(float dt)
+{	
 	if (ImGui::BeginMainMenuBar())
 	{
 		bool ret = false;
@@ -54,37 +41,32 @@ update_status ModuleSceneIntro::PostUpdate()
 		if (ImGui::BeginMenu("File"))
 		{			
 			ImGui::MenuItem("New Project", NULL, &ret);
-			ImGui::MenuItem("Open Project", NULL, &ret);
-
+			ImGui::MenuItem("Open Project", "Ctrl + O", &ret);
+			ImGui::MenuItem("Save Project", "Ctrl + S", &ret);
 			ImGui::Separator();
 
-			ImGui::MenuItem("Save", "Ctrl + S", &ret);
 			if (ImGui::MenuItem("Exit", "Alt + F4", &ret))
 			{
 				return update_status::UPDATE_STOP;
 			}
 			ImGui::EndMenu();
 		}
-
-		if (ImGui::BeginMenu("Edit Window"))
+		if (ImGui::BeginMenu("Edit"))
 		{
 			ImGui::MenuItem("Undo", "Ctrl + Z", &ret);
 			ImGui::MenuItem("Redo", "Ctrl + Y", &ret);
 			ImGui::EndMenu();
 		}
-
-		if (ImGui::BeginMenu("Main Window"))
+		if (ImGui::BeginMenu("Demo"))
 		{
 			ImGui::MenuItem("Demo Menu", NULL, &window);
 			ImGui::EndMenu();
 		}
-
-		if (ImGui::BeginMenu("Help Window"))
+		if (ImGui::BeginMenu("Help"))
 		{
 			ImGui::MenuItem("About Us", NULL, &windowHelp);
 			ImGui::EndMenu();
 		}
-
 		ImGui::EndMainMenuBar();
 	}
 	if (window)
@@ -99,7 +81,6 @@ update_status ModuleSceneIntro::PostUpdate()
 		ImGui::End();
 
 	}
-
 	if (windowHelp)
 	{
 		if (ImGui::Begin("About Us", &windowHelp))
@@ -113,4 +94,12 @@ update_status ModuleSceneIntro::PostUpdate()
 	}
 
 	return update_status::UPDATE_CONTINUE;
+}
+
+// Unload assets
+bool ModuleSceneIntro::CleanUp()
+{
+	LOG("Unloading Intro scene");
+
+	return true;
 }
