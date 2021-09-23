@@ -19,6 +19,9 @@
     <Filter Include="Sources\Tools\imgui">
       <UniqueIdentifier>{f6971b9b-ca00-4d01-ab90-b99f26289195}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Modules\Game">
+      <UniqueIdentifier>{a48c5319-ca3f-423c-a951-cbf093994ac1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -93,6 +96,9 @@
     <ClInclude Include="Source\p2Point.h">
       <Filter>Sources\Containers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ModuleSceneIntro.h">
+      <Filter>Sources\Modules\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleAudio.cpp">
@@ -154,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="Source\glmath.cpp">
       <Filter>Sources\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleSceneIntro.cpp">
+      <Filter>Sources\Modules\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
