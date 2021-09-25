@@ -16,7 +16,9 @@
 	@brief */
 
 #if defined(__unix__) || defined(__native_client__) || defined(EMSCRIPTEN) || defined(ANDROID) || defined(__APPLE__) || defined (__CYGWIN__)
+#include <stdio.h>
 #include <time.h>
+#include <intrin.h>
 #include <errno.h>
 #include <string.h>
 #include <sys/time.h>
@@ -33,6 +35,10 @@
 #ifdef __APPLE__
 #include <mach/mach_time.h>
 #endif
+
+#include <windows.h>
+#include <time.h>
+#include <intrin.h>
 
 #include "Clock.h"
 #include "../Math/myassert.h"
