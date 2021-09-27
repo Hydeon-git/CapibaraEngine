@@ -43,6 +43,9 @@
     <Filter Include="Sources\Tools\MathGeoLib\src\Time">
       <UniqueIdentifier>{fad96083-ab5a-4404-8ee8-85fbea37f3fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Tools\glew">
+      <UniqueIdentifier>{11a8939c-7231-4683-a6b1-ec65f534dcac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -293,6 +296,18 @@
     </ClInclude>
     <ClInclude Include="External\mathgeolib\tests\TestRunner.h">
       <Filter>Sources\Tools\MathGeoLib\tests</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\eglew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\glew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\glxew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\wglew.h">
+      <Filter>Sources\Tools\glew</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
