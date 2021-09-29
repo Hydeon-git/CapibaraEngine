@@ -309,6 +309,9 @@
     <ClInclude Include="External\glew\include\wglew.h">
       <Filter>Sources\Tools\glew</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ModuleEditor.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -514,6 +517,9 @@
     </ClCompile>
     <ClCompile Include="External\mathgeolib\tests\VectorTests.cpp">
       <Filter>Sources\Tools\MathGeoLib\tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleEditor.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

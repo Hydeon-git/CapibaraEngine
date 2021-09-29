@@ -6,6 +6,7 @@ Application::Application()
 	window = new ModuleWindow(this);
 	input = new ModuleInput(this);
 	sceneIntro = new ModuleSceneIntro(this, true);
+	editor = new ModuleEditor(this, true);
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
 
@@ -20,6 +21,7 @@ Application::Application()
 
 	// Scenes
 	AddModule(sceneIntro);
+	AddModule(editor);
 
 	// Renderer last!
 	AddModule(renderer3D);
@@ -70,9 +72,9 @@ void Application::FinishUpdate()
 }
 
 // Call PreUpdate, Update and PostUpdate on all modules
-update_status Application::Update()
+bool Application::Update()
 {
-	update_status ret = UPDATE_CONTINUE;
+	bool ret = true;
 	PrepareUpdate();
 	
 	std::list<Module*>::iterator item = moduleList.begin();

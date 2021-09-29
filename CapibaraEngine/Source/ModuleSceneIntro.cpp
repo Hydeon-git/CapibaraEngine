@@ -23,77 +23,18 @@ bool ModuleSceneIntro::Start()
 	return ret;
 }
 
-update_status ModuleSceneIntro::Update(float dt)
+bool ModuleSceneIntro::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
 
-	return UPDATE_CONTINUE;
+	return true;
 }
 
-update_status ModuleSceneIntro::PostUpdate(float dt)
-{	
-	if (ImGui::BeginMainMenuBar())
-	{
-		bool ret = false;
-
-		if (ImGui::BeginMenu("File"))
-		{			
-			ImGui::MenuItem("New Project", NULL, &ret);
-			ImGui::MenuItem("Open Project", "Ctrl + O", &ret);
-			ImGui::MenuItem("Save Project", "Ctrl + S", &ret);
-			ImGui::Separator();
-
-			if (ImGui::MenuItem("Exit", "Alt + F4", &ret))
-			{
-				return update_status::UPDATE_STOP;
-			}
-			ImGui::EndMenu();
-		}
-		if (ImGui::BeginMenu("Edit"))
-		{
-			ImGui::MenuItem("Undo", "Ctrl + Z", &ret);
-			ImGui::MenuItem("Redo", "Ctrl + Y", &ret);
-			ImGui::EndMenu();
-		}
-		if (ImGui::BeginMenu("Demo"))
-		{
-			ImGui::MenuItem("Demo Menu", NULL, &window);
-			ImGui::EndMenu();
-		}
-		if (ImGui::BeginMenu("Help"))
-		{
-			ImGui::MenuItem("About Us", NULL, &windowHelp);
-			ImGui::EndMenu();
-		}
-		ImGui::EndMainMenuBar();
-	}
-	if (window)
-	{
-		ImGui::ShowDemoWindow(&window);
-
-		ImGui::Begin("Capibara Engine", &window);
-		if (ImGui::Button("Close", ImVec2(0, 0)))
-		{
-			return update_status::UPDATE_STOP;
-		}
-		ImGui::End();
-
-	}
-	if (windowHelp)
-	{
-		if (ImGui::Begin("About Us", &windowHelp))
-		{
-			ImGui::TextWrapped
-			(
-				"Capibara Engine is being developed for Videogame Engines Class in CITM-UPC"				
-			);
-		}
-		ImGui::End();
-	}
-
-	return update_status::UPDATE_CONTINUE;
+bool ModuleSceneIntro::PostUpdate(float dt)
+{		
+	return true;
 }
 
 // Unload assets

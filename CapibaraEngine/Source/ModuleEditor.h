@@ -2,11 +2,11 @@
 #include "Module.h"
 #include "Globals.h"
 
-class ModuleSceneIntro : public Module
+class ModuleEditor : public Module
 {
 public:
-	ModuleSceneIntro(Application* app, bool start_enabled = true);
-	~ModuleSceneIntro();
+	ModuleEditor(Application* app, bool start_enabled = true);
+	~ModuleEditor();
 
 	bool Start();
 	bool Update(float dt);

@@ -8,6 +8,7 @@
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "ModuleSceneIntro.h"
+#include "ModuleEditor.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 
@@ -17,6 +18,7 @@ public:
 	ModuleWindow* window;
 	ModuleInput* input;
 	ModuleSceneIntro* sceneIntro;
+	ModuleEditor* editor;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 
@@ -32,7 +34,7 @@ public:
 	~Application();
 
 	bool Init();
-	update_status Update();
+	bool Update();
 	bool CleanUp();
 
 private:
