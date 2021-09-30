@@ -1,6 +1,6 @@
 #pragma once
 
-#include <list>
+#include <vector>
 
 #include "Globals.h"
 #include "Timer.h"
@@ -26,7 +26,7 @@ private:
 
 	Timer	ms_timer;
 	float	dt;
-	std::list<Module*> moduleList;
+	std::vector<Module*> moduleList;
 
 public:
 
