@@ -1,6 +1,9 @@
 #pragma once
 #include "Module.h"
 #include "Globals.h"
+#include <vector>
+
+using namespace std;
 
 class ModuleSceneIntro : public Module
 {
@@ -12,9 +15,8 @@ public:
 	bool Update(float dt);
 	bool PostUpdate(float dt);
 	bool CleanUp();
+	
 
-	// Imgui Variables
-	bool window;
-	bool windowHelp;
+	vector<float> frames;
 public:
 };

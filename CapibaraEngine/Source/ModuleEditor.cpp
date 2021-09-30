@@ -11,8 +11,9 @@
 
 ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled) 
 {
-	window = false;
+	window = true;
 	windowHelp = false;
+	demo = false;
 }
 ModuleEditor::~ModuleEditor() {}
 
@@ -51,7 +52,7 @@ bool ModuleEditor::PostUpdate(float dt)
 
 			if (ImGui::MenuItem("Exit", "Alt + F4", &ret))
 			{
-				return update_status::UPDATE_STOP;
+				return false;
 			}
 			ImGui::EndMenu();
 		}
@@ -63,7 +64,7 @@ bool ModuleEditor::PostUpdate(float dt)
 		}
 		if (ImGui::BeginMenu("Demo"))
 		{
-			ImGui::MenuItem("Demo Menu", NULL, &window);
+			ImGui::MenuItem("Demo Menu", NULL, &demo);
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Help"))
@@ -73,14 +74,42 @@ bool ModuleEditor::PostUpdate(float dt)
 		}
 		ImGui::EndMainMenuBar();
 	}
+	if (demo)
+	{
+		ImGui::ShowDemoWindow(&demo);
+	}
+
 	if (window)
 	{
-		ImGui::ShowDemoWindow(&window);
-
 		ImGui::Begin("Capibara Engine", &window);
 		if (ImGui::Button("Close", ImVec2(0, 0)))
 		{
-			return update_status::UPDATE_STOP;
+			return false;
+		}
+		ImGui::End();
+
+		ImGui::Begin("Configuration", &window/*, ImGuiWindowFlags_NoCollapse*/);
+		if (ImGui::CollapsingHeader("Application"))
+		{
+			// Histogram ============
+			if (i == (MAX_IT_HIST - 1))
+			{
+				for (int y = 0; y < i; y++)
+				{
+					int aux = y + 1;
+					fpsLog[y] = fpsLog[aux];
+					fpsLog[i] = ImGui::GetIO().Framerate;
+				}
+			}
+			else
+			{
+				fpsLog[i] = ImGui::GetIO().Framerate;
+				i++;
+			}
+			char title[25];
+			sprintf_s(title, 25, "Framerate: %.1f", ImGui::GetIO().Framerate);
+			ImGui::PlotHistogram("##framerate", fpsLog, IM_ARRAYSIZE(fpsLog), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
+			ImGui::Spacing();
 		}
 		ImGui::End();
 

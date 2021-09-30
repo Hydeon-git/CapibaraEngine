@@ -20,8 +20,9 @@ Application::Application()
 	AddModule(input);
 
 	// Scenes
-	AddModule(sceneIntro);
 	AddModule(editor);
+	AddModule(sceneIntro);
+	
 
 	// Renderer last!
 	AddModule(renderer3D);
@@ -81,15 +82,15 @@ bool Application::Update()
 	
 	for (unsigned int i = 0; i < moduleList.size(); i++)
 	{
-		ret = moduleList[i]->PreUpdate(dt);
+		if (ret) ret = moduleList[i]->PreUpdate(dt);
 	}	
 	for (unsigned int i = 0; i < moduleList.size(); i++)
 	{
-		ret = moduleList[i]->Update(dt);
+		if (ret) ret = moduleList[i]->Update(dt);
 	}	
 	for (unsigned int i = 0; i < moduleList.size(); i++)
 	{
-		ret = moduleList[i]->PostUpdate(dt);
+		if (ret) ret = moduleList[i]->PostUpdate(dt);
 	}
 	
 
