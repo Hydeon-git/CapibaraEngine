@@ -78,6 +78,11 @@ bool ModuleEditor::PostUpdate(float dt)
 		ImGui::Begin("Configuration", &window/*, ImGuiWindowFlags_NoCollapse*/);
 		if (ImGui::CollapsingHeader("Application"))
 		{
+			static char window_name[20];
+			if (ImGui::InputText("Application Name", window_name, 20)) {
+				App->window->SetTitle(window_name);
+			}
+			ImGui::Spacing();
 			// Histogram ============
 			if (i == (MAX_IT_HIST - 1))
 			{
