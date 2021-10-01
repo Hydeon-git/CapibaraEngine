@@ -56,8 +56,8 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <limits.h>
-#include <TargetConditionals.h>
-#include <AvailabilityMacros.h>
+//#include <TargetConditionals.h>
+//#include <AvailabilityMacros.h>
 
 #ifdef    __OBJC__
 #import <Foundation/NSArray.h>
