@@ -1,5 +1,4 @@
 #include "Application.h"
-#include <list>
 
 Application::Application()
 {
@@ -9,10 +8,6 @@ Application::Application()
 	editor = new ModuleEditor(this, true);
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
-
-	// The order of calls is very important!
-	// Modules will Init() Start() and Update in this order
-	// They will CleanUp() in reverse order
 
 	// Main Modules
 	AddModule(window);
@@ -24,7 +19,7 @@ Application::Application()
 	AddModule(sceneIntro);
 	
 
-	// Renderer last!
+	// Renderer3D
 	AddModule(renderer3D);
 }
 

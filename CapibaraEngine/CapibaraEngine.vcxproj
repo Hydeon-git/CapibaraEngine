@@ -51,7 +51,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(ProjectDir)External\glew\include;$(ProjectDir)External\mathgeolib;$(ProjectDir)External\imgui;$(ProjectDir)External\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)External\glew\include;$(ProjectDir)External\mathgeolib;$(ProjectDir)External\imgui;$(ProjectDir)External\SDL\include;$(ProjectDir)External\JSONkit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WINDOWS_IGNORE_PACKING_MISMATCH</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -93,6 +93,7 @@
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
     <ClInclude Include="External\imgui\imstb_truetype.h" />
+    <ClInclude Include="External\JSONkit\JSONKit.h" />
     <ClInclude Include="External\mathgeolib\src\Algorithm\Random\LCG.h" />
     <ClInclude Include="External\mathgeolib\src\Geometry\AABB.h" />
     <ClInclude Include="External\mathgeolib\src\Geometry\AABB2D.h" />

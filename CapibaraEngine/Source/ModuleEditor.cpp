@@ -22,18 +22,12 @@ bool ModuleEditor::Start()
 {
 	LOG("Loading Intro assets");
 	bool ret = true;
-
-	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
-	App->camera->LookAt(vec3(0, 0, 0));
+	
 	return ret;
 }
 
 bool ModuleEditor::Update(float dt)
-{
-	Plane p(0, 1, 0, 0);
-	p.axis = true;
-	p.Render();
-
+{	
 	return true;
 }
 
@@ -81,13 +75,6 @@ bool ModuleEditor::PostUpdate(float dt)
 
 	if (window)
 	{
-		ImGui::Begin("Capibara Engine", &window);
-		if (ImGui::Button("Close", ImVec2(0, 0)))
-		{
-			return false;
-		}
-		ImGui::End();
-
 		ImGui::Begin("Configuration", &window/*, ImGuiWindowFlags_NoCollapse*/);
 		if (ImGui::CollapsingHeader("Application"))
 		{
