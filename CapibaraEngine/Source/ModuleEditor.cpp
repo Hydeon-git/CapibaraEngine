@@ -78,11 +78,19 @@ bool ModuleEditor::PostUpdate(float dt)
 		ImGui::Begin("Configuration", &window/*, ImGuiWindowFlags_NoCollapse*/);
 		if (ImGui::CollapsingHeader("Application"))
 		{
-			static char window_name[20];
-			if (ImGui::InputText("Application Name", window_name, 20)) {
-				App->window->SetTitle(window_name);
+			static char app_name[20];
+			strcpy_s(app_name, 20, TITLE);
+			if (ImGui::InputText(" App Name", app_name, 20))
+			{
+				App->window->SetTitle(app_name);
 			}
 			ImGui::Spacing();
+			
+			static char organization[20] = "UPC CITM";
+			ImGui::InputText(" Organization", organization, 20);
+			ImGui::Spacing();
+
+
 			// Histogram ============
 			if (i == (MAX_IT_HIST - 1))
 			{
