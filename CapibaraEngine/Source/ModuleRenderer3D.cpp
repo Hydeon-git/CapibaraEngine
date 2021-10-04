@@ -9,7 +9,7 @@
 // Imgui
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
-#include "imgui_impl_opengl2.h"
+#include "imgui_impl_opengl3.h"
 
 #pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
@@ -49,7 +49,7 @@ bool ModuleRenderer3D::Init()
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		ImGui::StyleColorsDark();
 		ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
-		ImGui_ImplOpenGL2_Init();
+		ImGui_ImplOpenGL3_Init();
 
 		//Check for error
 		GLenum error = glGetError();
@@ -129,7 +129,7 @@ bool ModuleRenderer3D::PreUpdate(float dt)
 		lights[i].Render();
 
 	// Imgui NewFrame()
-	ImGui_ImplOpenGL2_NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
@@ -141,7 +141,7 @@ bool ModuleRenderer3D::PostUpdate(float dt)
 {
 	// Imgui render
 	ImGui::Render();
-	ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	
 	SDL_GL_SwapWindow(App->window->window);
 	return true;
@@ -153,7 +153,7 @@ bool ModuleRenderer3D::CleanUp()
 	LOG("Destroying 3D Renderer");
 
 	// CleanUp imgui
-	ImGui_ImplOpenGL2_Shutdown();
+	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplSDL2_Shutdown();
 	ImGui::DestroyContext();
 
