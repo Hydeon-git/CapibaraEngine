@@ -46,8 +46,8 @@
     <Filter Include="Sources\Tools\glew">
       <UniqueIdentifier>{11a8939c-7231-4683-a6b1-ec65f534dcac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Tools\Parson">
-      <UniqueIdentifier>{ccb6e47c-12a9-4a9a-b02e-59a0d01e5fc7}</UniqueIdentifier>
+    <Filter Include="Sources\Tools\JSONkit">
+      <UniqueIdentifier>{243fa3f5-7b32-412a-867e-96e022fe6c7a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +76,9 @@
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="External\imgui\imgui.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_opengl2.h">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="External\imgui\imgui_impl_sdl.h">
@@ -312,17 +315,8 @@
     <ClInclude Include="Source\ModuleEditor.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_opengl3.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\parson\parson.h">
-      <Filter>Sources\Tools\Parson</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_glfw.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h">
-      <Filter>Sources\Tools\ImGui</Filter>
+    <ClInclude Include="External\JSONkit\JSONKit.h">
+      <Filter>Sources\Tools\JSONkit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -351,6 +345,9 @@
       <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="External\imgui\imgui_draw.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_opengl2.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="External\imgui\imgui_impl_sdl.cpp">
@@ -529,18 +526,6 @@
     </ClCompile>
     <ClCompile Include="Source\ModuleEditor.cpp">
       <Filter>Sources\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\parson\parson.c">
-      <Filter>Sources\Tools\Parson</Filter>
-    </ClCompile>
-    <ClCompile Include="External\parson\tests.c">
-      <Filter>Sources\Tools\Parson</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_impl_glfw.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
