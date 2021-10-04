@@ -14,6 +14,8 @@ ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, s
 	window = true;
 	windowHelp = false;
 	demo = false;
+	resizable = true;
+	fullscreen = false;
 }
 ModuleEditor::~ModuleEditor() {}
 
@@ -110,6 +112,28 @@ bool ModuleEditor::PostUpdate(float dt)
 			sprintf_s(title, 25, "Framerate: %.1f", ImGui::GetIO().Framerate);
 			ImGui::PlotHistogram("##framerate", fpsLog, IM_ARRAYSIZE(fpsLog), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
 			ImGui::Spacing();
+			//sprintf_s(title, 25, "Milliseconds: %0.1f", ImGui::GetIO().Framerate);
+			//ImGui::PlotHistogram("##milliseconds", fpsLog, IM_ARRAYSIZE(fpsLog), 0, title, 0.0f, 40.0f, ImVec2(310, 100));
+
+		}
+		if (ImGui::CollapsingHeader("Window"))
+		{
+			/*if (ImGui::SliderInt(" Width", &App->window->width, 0, 1920)) 
+			{
+				SDL_SetWindowSize(App->window->window, App->window->width, App->window->height);
+			}*/
+			if (ImGui::Checkbox("Fullscreen", &fullscreen))
+				App->window->SetFullscreen(fullscreen);
+			ImGui::SameLine();
+			if (ImGui::Checkbox("Resizable", &resizable)){}
+				//SDL_SetWindowResizable(App->window->window, (SDL_bool)resizable);
+				//App->window->SetResizable((SDL_bool)resizable);
+		
+		}
+		if (ImGui::CollapsingHeader("Hardware"))
+		{
+
+
 		}
 		ImGui::End();
 

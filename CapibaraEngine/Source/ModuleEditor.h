@@ -23,6 +23,9 @@ public:
 	bool windowHelp;
 	bool demo;
 
+	bool fullscreen;
+	bool resizable;
+
 	float fpsLog[MAX_IT_HIST];
 	int i=0;
 
