@@ -46,8 +46,11 @@
     <Filter Include="Sources\Tools\glew">
       <UniqueIdentifier>{11a8939c-7231-4683-a6b1-ec65f534dcac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Tools\JSONkit">
-      <UniqueIdentifier>{243fa3f5-7b32-412a-867e-96e022fe6c7a}</UniqueIdentifier>
+    <Filter Include="Sources\Tools\mmgr">
+      <UniqueIdentifier>{efc9ca74-91dc-47fb-b798-74a5599264d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Tools\Parson">
+      <UniqueIdentifier>{9909d7f5-46a3-405b-8eca-1bcde807f954}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -315,8 +318,14 @@
     <ClInclude Include="Source\ModuleEditor.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="External\JSONkit\JSONKit.h">
-      <Filter>Sources\Tools\JSONkit</Filter>
+    <ClInclude Include="External\mmgr\mmgr.h">
+      <Filter>Sources\Tools\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="External\mmgr\nommgr.h">
+      <Filter>Sources\Tools\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="External\parson\parson.h">
+      <Filter>Sources\Tools\Parson</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -526,6 +535,15 @@
     </ClCompile>
     <ClCompile Include="Source\ModuleEditor.cpp">
       <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="External\mmgr\mmgr.cpp">
+      <Filter>Sources\Tools\mmgr</Filter>
+    </ClCompile>
+    <ClCompile Include="External\parson\parson.c">
+      <Filter>Sources\Tools\Parson</Filter>
+    </ClCompile>
+    <ClCompile Include="External\parson\tests.c">
+      <Filter>Sources\Tools\Parson</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
