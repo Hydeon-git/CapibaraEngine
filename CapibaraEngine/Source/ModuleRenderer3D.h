@@ -21,8 +21,12 @@ public:
 
 	void OnResize(int width, int height);
 	void DrawDirectCube();
+	void DrawElementsCube();
 	
 public:
+	std::vector<unsigned int> indices;
+	std::vector<float> interleavedVertices;
+	int interleavedStride;
 
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;

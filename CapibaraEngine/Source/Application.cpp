@@ -14,13 +14,13 @@ Application::Application()
 	AddModule(camera);
 	AddModule(input);
 
-	// Scenes
+	// Scenes	
 	AddModule(editor);
-	AddModule(sceneIntro);
-	
+	AddModule(sceneIntro);	
 
 	// Renderer3D
 	AddModule(renderer3D);
+	
 }
 
 Application::~Application()
