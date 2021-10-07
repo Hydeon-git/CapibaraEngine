@@ -4,7 +4,7 @@ ConsolePanel::ConsolePanel(bool enabled) : Panels(enabled) {}
 ConsolePanel::~ConsolePanel() {}
 
 
-bool ConsolePanel::PostUpdate(float dt)
+bool ConsolePanel::Update(float dt)
 {
 	ImGui::Begin("Console", &console);
 	if (scrollBar)
