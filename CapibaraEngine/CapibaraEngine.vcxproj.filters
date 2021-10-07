@@ -52,6 +52,9 @@
     <Filter Include="Sources\Tools\Parson">
       <UniqueIdentifier>{9909d7f5-46a3-405b-8eca-1bcde807f954}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\ImGui Panels">
+      <UniqueIdentifier>{2dbe6ecb-61d6-4a5b-897d-ab31161e5a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -330,6 +333,12 @@
     <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ConsolePanel.h">
+      <Filter>Sources\ImGui Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Panels.h">
+      <Filter>Sources\ImGui Panels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -547,6 +556,9 @@
     </ClCompile>
     <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ConsolePanel.cpp">
+      <Filter>Sources\ImGui Panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

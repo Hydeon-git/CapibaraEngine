@@ -6,6 +6,8 @@
 
 #define MAX_LIGHTS 8
 
+typedef unsigned int GLuint;
+
 class ModuleRenderer3D : public Module
 {
 public:
@@ -19,7 +21,7 @@ public:
 
 	void OnResize(int width, int height);
 	void DrawDirectCube();
-
+	
 public:
 
 	Light lights[MAX_LIGHTS];

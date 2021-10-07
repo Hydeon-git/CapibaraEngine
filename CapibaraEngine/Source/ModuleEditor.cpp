@@ -30,17 +30,11 @@ bool ModuleEditor::Start()
 
 bool ModuleEditor::Update(float dt)
 {	
-	return true;
-}
-
-bool ModuleEditor::PostUpdate(float dt)
-{	
+	bool ret = false;
 	if (ImGui::BeginMainMenuBar())
 	{
-		bool ret = false;
-
 		if (ImGui::BeginMenu("File"))
-		{			
+		{
 			ImGui::MenuItem("New Project", NULL, &ret);
 			ImGui::MenuItem("Open Project", "Ctrl + O", &ret);
 			ImGui::MenuItem("Save Project", "Ctrl + S", &ret);
@@ -87,7 +81,7 @@ bool ModuleEditor::PostUpdate(float dt)
 				App->window->SetTitle(app_name);
 			}
 			ImGui::Spacing();
-			
+
 			static char organization[20] = "UPC CITM";
 			ImGui::InputText(" Organization", organization, 20);
 			ImGui::Spacing();
@@ -118,7 +112,7 @@ bool ModuleEditor::PostUpdate(float dt)
 		}
 		if (ImGui::CollapsingHeader("Window"))
 		{
-			/*if (ImGui::SliderInt(" Width", &App->window->width, 0, 1920)) 
+			/*if (ImGui::SliderInt(" Width", &App->window->width, 0, 1920))
 			{
 				SDL_SetWindowSize(App->window->window, App->window->width, App->window->height);
 			}*/
@@ -126,9 +120,11 @@ bool ModuleEditor::PostUpdate(float dt)
 				App->window->SetFullscreen(fullscreen);
 			ImGui::SameLine();
 			if (ImGui::Checkbox("Resizable", &resizable)){}
-				//SDL_SetWindowResizable(App->window->window, (SDL_bool)resizable);
-				//App->window->SetResizable((SDL_bool)resizable);
-		
+				
+			
+			//SDL_SetWindowResizable(App->window->window, (SDL_bool)resizable);
+			//App->window->SetResizable((SDL_bool)resizable);
+
 		}
 		if (ImGui::CollapsingHeader("Hardware"))
 		{
@@ -144,13 +140,14 @@ bool ModuleEditor::PostUpdate(float dt)
 		{
 			ImGui::TextWrapped
 			(
-				"Capibara Engine is being developed for Videogame Engines Class in CITM-UPC"				
+				"Capibara Engine is being developed for Videogame Engines Class in CITM-UPC"
 			);
 		}
 		ImGui::End();
 	}
 
-	return true;
+	ret = consolePanel.Update(dt);
+	return ret;
 }
 
 // Unload assets

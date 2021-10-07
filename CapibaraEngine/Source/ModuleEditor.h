@@ -1,7 +1,10 @@
 #pragma once
+
+#include <vector>
+
 #include "Module.h"
 #include "Globals.h"
-#include <vector>
+#include "ConsolePanel.h"
 
 using namespace std;
 
@@ -15,7 +18,6 @@ public:
 
 	bool Start();
 	bool Update(float dt);
-	bool PostUpdate(float dt);
 	bool CleanUp();
 
 	// Imgui Variables
@@ -30,5 +32,6 @@ public:
 	int i=0;
 
 	//vector<float> fps_log;
-public:
+private:
+	ConsolePanel consolePanel;
 };
