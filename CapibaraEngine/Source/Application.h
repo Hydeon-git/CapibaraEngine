@@ -12,6 +12,8 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 
+#include <string>
+
 class Application
 {
 public:
@@ -38,8 +40,9 @@ public:
 	bool Init();
 	bool Update();
 	bool CleanUp();
+	int GetFPSLimit() const;
 	void SetFPSLimit(const float fps);
-	inline int GetFPSLimit() const { return ((1.0f / (float)cappedMs) * 1000.0f); }
+	void RequestBrowser(const std::string& website);
 private:
 
 	void AddModule(Module* mod);

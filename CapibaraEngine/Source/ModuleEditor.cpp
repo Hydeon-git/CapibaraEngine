@@ -54,13 +54,20 @@ bool ModuleEditor::Update(float dt)
 			ImGui::MenuItem("Redo", "Ctrl + Y", &ret);
 			ImGui::EndMenu();
 		}
-		if (ImGui::BeginMenu("Demo"))
-		{
-			ImGui::MenuItem("Demo Menu", NULL, &demo);
-			ImGui::EndMenu();
-		}
+		
 		if (ImGui::BeginMenu("Help"))
 		{
+			ImGui::MenuItem("Demo Menu", NULL, &demo);
+
+			if (ImGui::MenuItem("Documentation"))
+				App->RequestBrowser("https://github.com/Hydeon-git/CapibaraEngine");
+			
+			if (ImGui::MenuItem("Download latest"))
+				App->RequestBrowser("https://github.com/Hydeon-git/CapibaraEngine/releases");
+			
+			if (ImGui::MenuItem("Report a bug"))
+				App->RequestBrowser("https://github.com/Hydeon-git/CapibaraEngine/issues");
+
 			ImGui::MenuItem("About Us", NULL, &windowHelp);
 			ImGui::EndMenu();
 		}
@@ -89,7 +96,6 @@ bool ModuleEditor::Update(float dt)
 			ImGui::Spacing();
 
 
-			// Histogram ============
 			if (fps.size() >= 100)
 			{
 				for (int i = 0; i < fps.size() - 1; ++i)
@@ -144,9 +150,11 @@ bool ModuleEditor::Update(float dt)
 			ImGui::SameLine();
 			if (ImGui::Checkbox("Resizable", &resizable))
 			{
-			
+				//SDL_SetWindowResizable(App->window->window, (SDL_bool)resizable);
+
 			}
-			
+			if (ImGui::IsItemHovered())
+				ImGui::SetTooltip("Restart to apply");
 			if (ImGui::Checkbox("Borderless", &borderless))
 			{
 				SDL_SetWindowBordered(App->window->window, (SDL_bool)borderless);
@@ -157,14 +165,25 @@ bool ModuleEditor::Update(float dt)
 				SDL_SetWindowFullscreen(App->window->window, fullDesktop);
 			}
 
-				
 			
-			//SDL_SetWindowResizable(App->window->window, (SDL_bool)resizable);
+			
 			//App->window->SetResizable((SDL_bool)resizable);
+
+		}
+		if (ImGui::CollapsingHeader("File System"))
+		{
+
+
+		}
+		if (ImGui::CollapsingHeader("Input"))
+		{
+
 
 		}
 		if (ImGui::CollapsingHeader("Hardware"))
 		{
+			ImGui::Text("CPUs: %d (Cache: %dkb)", SDL_GetCPUCount(), SDL_GetCPUCacheLineSize());
+			ImGui::Text("System RAM: %.2fGb", (float)SDL_GetSystemRAM() / 1024.f);
 
 
 		}

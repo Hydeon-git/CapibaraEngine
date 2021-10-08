@@ -111,8 +111,18 @@ void Application::AddModule(Module* mod)
 	moduleList.push_back(mod);
 }
 
+int Application::GetFPSLimit() const
+{
+	return ((1.0f / (float)cappedMs) * 1000.0f);
+}
+
 void Application::SetFPSLimit(const float fps)
 {
 	if (fps > 0) cappedMs = 1000 / fps;
 	else cappedMs = 0;
+}
+
+void Application::RequestBrowser(const std::string& website)
+{
+	ShellExecuteA(NULL, "open", website.c_str(), NULL, NULL, SW_SHOWNORMAL);
 }
