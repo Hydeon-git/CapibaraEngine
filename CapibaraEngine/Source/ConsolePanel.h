@@ -8,7 +8,7 @@ public:
 	ConsolePanel(bool enabled = true);
 	~ConsolePanel();
 
-	bool Update(float dt);
+	bool Update(float dt) override;
 
 private:
 	bool console, scrollBar;

@@ -15,9 +15,9 @@ public:
 	ModuleEditor(Application* app, bool start_enabled = true);
 	~ModuleEditor();
 
-	bool Start();
-	bool Update(float dt);
-	bool CleanUp();
+	bool Start() override;
+	bool Update(float dt) override;
+	bool CleanUp() override;
 
 	// Imgui Variables
 	bool window;

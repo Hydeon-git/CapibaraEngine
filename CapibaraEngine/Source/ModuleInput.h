@@ -19,9 +19,9 @@ public:
 	ModuleInput(Application* app, bool start_enabled = true);
 	~ModuleInput();
 
-	bool Init();
-	bool PreUpdate(float dt);
-	bool CleanUp();
+	bool Init() override;
+	bool PreUpdate(float dt) override;
+	bool CleanUp() override;
 
 	KEY_STATE GetKey(int id) const
 	{
