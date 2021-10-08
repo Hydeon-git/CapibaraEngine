@@ -39,7 +39,7 @@ bool Application::Init()
 	// Call Init() in all modules
 	
 	
-	for (unsigned int i = 0; i < moduleList.size(); i++)
+	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		ret = moduleList[i]->Init();
 	}
@@ -47,7 +47,7 @@ bool Application::Init()
 	// After all Init calls we call Start() in all modules
 	LOG("Application Start --------------");	
 
-	for (unsigned int i = 0; i < moduleList.size(); i++)
+	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		ret = moduleList[i]->Start();
 	}
@@ -75,15 +75,15 @@ bool Application::Update()
 	PrepareUpdate();
 	
 	
-	for (unsigned int i = 0; i < moduleList.size(); i++)
+	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		if (ret) ret = moduleList[i]->PreUpdate(dt);
 	}	
-	for (unsigned int i = 0; i < moduleList.size(); i++)
+	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		if (ret) ret = moduleList[i]->Update(dt);
 	}	
-	for (unsigned int i = 0; i < moduleList.size(); i++)
+	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		if (ret) ret = moduleList[i]->PostUpdate(dt);
 	}

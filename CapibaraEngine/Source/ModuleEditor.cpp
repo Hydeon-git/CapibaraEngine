@@ -32,7 +32,7 @@ bool ModuleEditor::Start()
 
 bool ModuleEditor::Update(float dt)
 {	
-	bool ret = false;
+	bool ret = true;
 	if (ImGui::BeginMainMenuBar())
 	{
 		if (ImGui::BeginMenu("File"))
@@ -44,7 +44,7 @@ bool ModuleEditor::Update(float dt)
 
 			if (ImGui::MenuItem("Exit", "Alt + F4", &ret))
 			{
-				return false;
+				ret = false;
 			}
 			ImGui::EndMenu();
 		}
@@ -183,7 +183,7 @@ bool ModuleEditor::Update(float dt)
 		ImGui::End();
 	}
 
-	ret = consolePanel.Update(dt);
+	//ret = consolePanel.Update(dt);
 	return ret;
 }
 

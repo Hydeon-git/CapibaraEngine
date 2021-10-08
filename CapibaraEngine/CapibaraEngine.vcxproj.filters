@@ -46,9 +46,6 @@
     <Filter Include="Sources\Tools\glew">
       <UniqueIdentifier>{11a8939c-7231-4683-a6b1-ec65f534dcac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Tools\mmgr">
-      <UniqueIdentifier>{efc9ca74-91dc-47fb-b798-74a5599264d1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Tools\Parson">
       <UniqueIdentifier>{9909d7f5-46a3-405b-8eca-1bcde807f954}</UniqueIdentifier>
     </Filter>
@@ -329,12 +326,6 @@
     </ClInclude>
     <ClInclude Include="Source\ModuleEditor.h">
       <Filter>Sources\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="External\mmgr\mmgr.h">
-      <Filter>Sources\Tools\mmgr</Filter>
-    </ClInclude>
-    <ClInclude Include="External\mmgr\nommgr.h">
-      <Filter>Sources\Tools\mmgr</Filter>
     </ClInclude>
     <ClInclude Include="External\parson\parson.h">
       <Filter>Sources\Tools\Parson</Filter>
@@ -787,9 +778,6 @@
     </ClCompile>
     <ClCompile Include="Source\ModuleEditor.cpp">
       <Filter>Sources\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="External\mmgr\mmgr.cpp">
-      <Filter>Sources\Tools\mmgr</Filter>
     </ClCompile>
     <ClCompile Include="External\parson\parson.c">
       <Filter>Sources\Tools\Parson</Filter>

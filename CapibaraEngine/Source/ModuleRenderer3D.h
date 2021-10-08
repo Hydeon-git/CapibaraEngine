@@ -14,10 +14,10 @@ public:
 	ModuleRenderer3D(Application* app, bool start_enabled = true);
 	~ModuleRenderer3D();
 
-	bool Init();
-	bool PreUpdate(float dt);
-	bool PostUpdate(float dt);
-	bool CleanUp();
+	bool Init() override;
+	bool PreUpdate(float dt) override;
+	bool PostUpdate(float dt) override;
+	bool CleanUp() override;
 
 	void OnResize(int width, int height);
 	void DrawDirectCube();

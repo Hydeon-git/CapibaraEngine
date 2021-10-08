@@ -232,8 +232,6 @@
     <ClInclude Include="External\mathgeolib\tests\SystemInfo.h" />
     <ClInclude Include="External\mathgeolib\tests\TestData.h" />
     <ClInclude Include="External\mathgeolib\tests\TestRunner.h" />
-    <ClInclude Include="External\mmgr\mmgr.h" />
-    <ClInclude Include="External\mmgr\nommgr.h" />
     <ClInclude Include="External\parson\parson.h" />
     <ClInclude Include="External\PhysFS\include\physfs.h" />
     <ClInclude Include="Source\Application.h" />
@@ -309,7 +307,6 @@
     <ClCompile Include="External\mathgeolib\tests\TestRunner.cpp" />
     <ClCompile Include="External\mathgeolib\tests\TransformTests.cpp" />
     <ClCompile Include="External\mathgeolib\tests\VectorTests.cpp" />
-    <ClCompile Include="External\mmgr\mmgr.cpp" />
     <ClCompile Include="External\parson\parson.c" />
     <ClCompile Include="External\parson\tests.c" />
     <ClCompile Include="Source\Application.cpp" />
