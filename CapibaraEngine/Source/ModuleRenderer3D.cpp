@@ -147,7 +147,7 @@ bool ModuleRenderer3D::PostUpdate(float dt)
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	//DrawElementsCube();
-	DrawElementsSphere();
+	//DrawElementsSphere();
 	
 	SDL_GL_SwapWindow(App->window->window);
 	return true;

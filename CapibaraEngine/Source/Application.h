@@ -26,7 +26,9 @@ private:
 
 	Timer	ms_timer;
 	float	dt;
+	int cappedMs = -1;
 	std::vector<Module*> moduleList;
+
 
 public:
 
@@ -36,7 +38,8 @@ public:
 	bool Init();
 	bool Update();
 	bool CleanUp();
-
+	void SetFPSLimit(const float fps);
+	inline int GetFPSLimit() const { return ((1.0f / (float)cappedMs) * 1000.0f); }
 private:
 
 	void AddModule(Module* mod);

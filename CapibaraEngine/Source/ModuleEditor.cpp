@@ -16,6 +16,8 @@ ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, s
 	demo = false;
 	resizable = true;
 	fullscreen = false;
+	fullDesktop = SDL_WINDOW_FULLSCREEN_DESKTOP;
+	borderless = false;
 }
 ModuleEditor::~ModuleEditor() {}
 
@@ -88,38 +90,73 @@ bool ModuleEditor::Update(float dt)
 
 
 			// Histogram ============
-			if (i == (MAX_IT_HIST - 1))
+			if (fps.size() >= 100)
 			{
-				for (int y = 0; y < i; y++)
+				for (int i = 0; i < fps.size() - 1; ++i)
 				{
-					int aux = y + 1;
-					fpsLog[y] = fpsLog[aux];
-					fpsLog[i] = ImGui::GetIO().Framerate;
+					fps[i] = fps[i + 1];
+					ms[i] = ms[i + 1];
 				}
+				fps[fps.size() - 1] = App->GetFPSLimit();
+				ms[ms.size() - 1] = 1000.0f / App->GetFPSLimit();
 			}
 			else
 			{
-				fpsLog[i] = ImGui::GetIO().Framerate;
-				i++;
+				fps.emplace_back(App->GetFPSLimit());
+				ms.emplace_back(1000.0f / App->GetFPSLimit());
+			}
+			int framerate = App->GetFPSLimit();
+			if (ImGui::SliderInt("Max FPS", &framerate, 1, 144))
+			{
+				App->SetFPSLimit(framerate);
 			}
 			char title[25];
-			sprintf_s(title, 25, "Framerate: %.1f", ImGui::GetIO().Framerate);
-			ImGui::PlotHistogram("##framerate", fpsLog, IM_ARRAYSIZE(fpsLog), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
+			sprintf_s(title, 25, "Framerate: %.1f", fps[fps.size() - 1]);
+			ImGui::PlotHistogram("##framerate", &fps[0], fps.size(), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
 			ImGui::Spacing();
-			//sprintf_s(title, 25, "Milliseconds: %0.1f", ImGui::GetIO().Framerate);
-			//ImGui::PlotHistogram("##milliseconds", fpsLog, IM_ARRAYSIZE(fpsLog), 0, title, 0.0f, 40.0f, ImVec2(310, 100));
+			sprintf_s(title, 25, "Milliseconds: %0.1f", ms[ms.size() - 1]);
+			ImGui::PlotHistogram("##milliseconds", &ms[0], ms.size(), 0, title, 0.0f, 40.0f, ImVec2(310, 100));
+
+			//ImGui::PlotHistogram("##memory", &memory[0], memory.size(), 0, "Memory Consumption", 0.0f, (float)stats.peakReportedMemory * 1.2f, ImVec2(310, 100));
 
 		}
 		if (ImGui::CollapsingHeader("Window"))
 		{
-			/*if (ImGui::SliderInt(" Width", &App->window->width, 0, 1920))
+			if (ImGui::SliderFloat("Brightness", &App->window->brightness, 0.0f, 1.0f, "%f", 0))
+			{
+				SDL_SetWindowBrightness(App->window->window, App->window->brightness);
+			}
+
+			if (ImGui::SliderInt("Width", &App->window->width, 640, 1920, "%d", 0))
 			{
 				SDL_SetWindowSize(App->window->window, App->window->width, App->window->height);
-			}*/
+			}
+
+			if (ImGui::SliderInt("Height", &App->window->height, 480, 1080, "%d", 0))
+			{
+				SDL_SetWindowSize(App->window->window, App->window->width, App->window->height);
+			}
+
 			if (ImGui::Checkbox("Fullscreen", &fullscreen))
-				App->window->SetFullscreen(fullscreen);
+			{
+				SDL_SetWindowFullscreen(App->window->window, fullscreen);
+			}
 			ImGui::SameLine();
-			if (ImGui::Checkbox("Resizable", &resizable)){}
+			if (ImGui::Checkbox("Resizable", &resizable))
+			{
+			
+			}
+			
+			if (ImGui::Checkbox("Borderless", &borderless))
+			{
+				SDL_SetWindowBordered(App->window->window, (SDL_bool)borderless);
+			}
+			ImGui::SameLine();
+			if (ImGui::Checkbox("Full desktop", &fullDesktop))
+			{
+				SDL_SetWindowFullscreen(App->window->window, fullDesktop);
+			}
+
 				
 			
 			//SDL_SetWindowResizable(App->window->window, (SDL_bool)resizable);

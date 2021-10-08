@@ -7,6 +7,10 @@ ModuleWindow::ModuleWindow(Application* app, bool start_enabled) : Module(app, s
 {
 	window = NULL;
 	screen_surface = NULL;
+
+	width = SCREEN_WIDTH;
+	height = SCREEN_HEIGHT;
+	brightness = 1;
 }
 
 // Destructor
@@ -98,12 +102,3 @@ void ModuleWindow::SetTitle(const char* title)
 	SDL_SetWindowTitle(window, title);
 }
 
-void ModuleWindow::SetFullscreen(bool fullscreen)
-{
-	SDL_SetWindowFullscreen(window, fullscreen);
-}
-
-//void ModuleWindow::SetResizable(bool resizable)
-//{	
-//	SDL_SetWindowResizable(window, (SDL_bool)resizable);
-//}

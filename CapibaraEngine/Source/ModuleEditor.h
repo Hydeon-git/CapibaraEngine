@@ -8,7 +8,6 @@
 
 using namespace std;
 
-#define MAX_IT_HIST 100
 
 class ModuleEditor : public Module
 {
@@ -27,11 +26,13 @@ public:
 
 	bool fullscreen;
 	bool resizable;
+	bool borderless;
+	bool fullDesktop;
 
-	float fpsLog[MAX_IT_HIST];
-	int i=0;
+	vector<float> fps;
+	vector<float> ms;
+	vector<float> memory;
 
-	//vector<float> fps_log;
 private:
 	ConsolePanel consolePanel;
 };

@@ -110,3 +110,9 @@ void Application::AddModule(Module* mod)
 {
 	moduleList.push_back(mod);
 }
+
+void Application::SetFPSLimit(const float fps)
+{
+	if (fps > 0) cappedMs = 1000 / fps;
+	else cappedMs = 0;
+}
