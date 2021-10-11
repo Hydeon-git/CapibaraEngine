@@ -573,6 +573,12 @@
     <ClInclude Include="External\PhysFS\include\physfs.h">
       <Filter>Sources\Tools\PhysFS</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ModuleFileSystem.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="External\assimp\include\config.h">
+      <Filter>Sources\Tools\Assimp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -790,6 +796,9 @@
     </ClCompile>
     <ClCompile Include="Source\ConsolePanel.cpp">
       <Filter>Sources\ImGui Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleFileSystem.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

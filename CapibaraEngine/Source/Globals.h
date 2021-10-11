@@ -36,4 +36,12 @@ enum update_status
 #define WIN_BORDERLESS false
 #define WIN_FULLSCREEN_DESKTOP false
 #define VSYNC true
+
+// Folder Definition -------
+#define SETTINGS_FOLDER "/Settings/"
+#define ASSETS_FOLDER "/Assets/"
+#define TEXTURES_FOLDER "/Textures/"
+
+// Software Info -----------
 #define TITLE "Capibara Engine"
+#define ORG "UPC-CITM"
