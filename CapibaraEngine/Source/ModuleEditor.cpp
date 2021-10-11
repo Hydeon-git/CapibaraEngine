@@ -91,7 +91,7 @@ bool ModuleEditor::Update(float dt)
 			}
 			ImGui::Spacing();
 
-			static char organization[20] = "UPC CITM";
+			static char organization[20] = ORG;
 			ImGui::InputText(" Organization", organization, 20);
 			ImGui::Spacing();
 

@@ -59,7 +59,7 @@
       <SubSystem>Windows</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <AdditionalLibraryDirectories>$(ProjectDir)External\glew\lib;$(ProjectDir)External\SDL\libx86;$(ProjectDir)External\assimp\libx86;$(ProjectDir)External\PhysFS\libx86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>physfs.lib;assimp-vc142-mt.lib;glew32.lib;glew32s.lib;glu32.lib;opengl32.lib;SDL2main.lib;SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;glu32.lib;opengl32.lib;SDL2main.lib;SDL2.lib;assimp-vc142-mt.lib;physfs.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,6 +96,7 @@
     <ClInclude Include="External\assimp\include\Compiler\poppack1.h" />
     <ClInclude Include="External\assimp\include\Compiler\pstdint.h" />
     <ClInclude Include="External\assimp\include\Compiler\pushpack1.h" />
+    <ClInclude Include="External\assimp\include\config.h" />
     <ClInclude Include="External\assimp\include\CreateAnimMesh.h" />
     <ClInclude Include="External\assimp\include\DefaultIOStream.h" />
     <ClInclude Include="External\assimp\include\DefaultIOSystem.h" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Source\Module.h" />
     <ClInclude Include="Source\ModuleCamera3D.h" />
     <ClInclude Include="Source\ModuleEditor.h" />
+    <ClInclude Include="Source\ModuleFileSystem.h" />
     <ClInclude Include="Source\ModuleInput.h" />
     <ClInclude Include="Source\ModuleRenderer3D.h" />
     <ClInclude Include="Source\ModuleSceneIntro.h" />
@@ -318,6 +320,7 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\ModuleCamera3D.cpp" />
     <ClCompile Include="Source\ModuleEditor.cpp" />
+    <ClCompile Include="Source\ModuleFileSystem.cpp" />
     <ClCompile Include="Source\ModuleInput.cpp" />
     <ClCompile Include="Source\ModuleRenderer3D.cpp" />
     <ClCompile Include="Source\ModuleSceneIntro.cpp" />
