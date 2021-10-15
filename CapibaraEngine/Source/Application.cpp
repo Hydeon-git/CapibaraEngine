@@ -51,7 +51,7 @@ bool Application::Init()
 	{
 		ret = moduleList[i]->Start();
 	}
-	
+	cappedMs = 1000 / 60;
 	ms_timer.Start();
 	return ret;
 }
@@ -59,6 +59,9 @@ bool Application::Init()
 // ---------------------------------------------
 void Application::PrepareUpdate()
 {	
+	frameCount++;
+	lastSecFrameCount++;
+
 	dt = (float)ms_timer.Read() / 1000.0f;
 	ms_timer.Start();
 }
@@ -66,6 +69,19 @@ void Application::PrepareUpdate()
 // ---------------------------------------------
 void Application::FinishUpdate()
 {	
+	if (lastSecFrameTime.Read() > 1000)
+	{
+		prevLastSecFrameCount = lastSecFrameCount;
+		lastSecFrameCount = 0;
+		lastSecFrameTime.Start();
+	}
+
+	unsigned int lastFrameMs = ms_timer.Read();
+
+	if ((cappedMs > 0) && (lastFrameMs < cappedMs))
+	{
+		SDL_Delay(cappedMs - lastFrameMs);
+	}
 }
 
 // Call PreUpdate, Update and PostUpdate on all modules

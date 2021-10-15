@@ -29,9 +29,8 @@ public:
 	bool borderless;
 	bool fullDesktop;
 
-	vector<float> fps;
-	vector<float> ms;
-	vector<float> memory;
+	vector<float> fps_log;
+	vector<float> ms_log;
 
 private:
 	ConsolePanel consolePanel;

@@ -26,7 +26,13 @@ public:
 
 private:
 
-	Timer	ms_timer;
+	Timer ms_timer;
+	Timer lastSecFrameTime;
+
+	unsigned int lastSecFrameCount = 0;
+	unsigned int prevLastSecFrameCount = 0;
+	unsigned int frameCount = 0;
+
 	float	dt;
 	int cappedMs = -1;
 	std::vector<Module*> moduleList;
