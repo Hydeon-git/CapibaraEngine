@@ -4,6 +4,8 @@
 #include "glmath.h"
 #include "Light.h"
 
+#include "fbxLoader.h"
+
 #define MAX_LIGHTS 8
 
 typedef unsigned int GLuint;
@@ -16,6 +18,7 @@ public:
 
 	bool Init() override;
 	bool PreUpdate(float dt) override;
+	bool Draw() override;
 	bool PostUpdate(float dt) override;
 	bool CleanUp() override;
 
@@ -32,4 +35,7 @@ public:
 	SDL_GLContext context;
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
+
+private:
+	fbxLoader meshLoader;
 };

@@ -6,6 +6,7 @@ Application::Application()
 	input = new ModuleInput(this);
 	sceneIntro = new ModuleSceneIntro(this, true);
 	editor = new ModuleEditor(this, true);
+	fileSystem = new ModuleFileSystem(this, true);
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
 
@@ -14,8 +15,9 @@ Application::Application()
 	AddModule(camera);
 	AddModule(input);
 
-	// Scenes	
+	// Scenes
 	AddModule(editor);
+	AddModule(fileSystem);
 	AddModule(sceneIntro);	
 
 	// Renderer3D
@@ -82,6 +84,10 @@ bool Application::Update()
 	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		if (ret) ret = moduleList[i]->Update(dt);
+	}	
+	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
+	{
+		if (ret) ret = moduleList[i]->Draw();
 	}	
 	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{

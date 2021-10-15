@@ -154,6 +154,11 @@ bool ModuleRenderer3D::PreUpdate(float dt)
 	return true;
 }
 
+bool ModuleRenderer3D::Draw()
+{
+	meshLoader.LoadFile();
+}
+
 // PostUpdate present buffer to screen
 bool ModuleRenderer3D::PostUpdate(float dt)
 {
