@@ -38,6 +38,7 @@ private:
 	};
 
 public:
-	void LoadFile(char filePath[]);
+	void LoadFile(const char* filePath);
+	void CreateMeshBuffers(vertexData vData);
 	void DrawMesh(aiMesh mesh, char filePath[]);
 };

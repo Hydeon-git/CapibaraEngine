@@ -156,7 +156,9 @@ bool ModuleRenderer3D::PreUpdate(float dt)
 
 bool ModuleRenderer3D::Draw()
 {
-	meshLoader.LoadFile();
+	bool ret = true;
+	meshLoader.LoadFile("Game\Assets\BakerHouse.fbx");
+	return true;
 }
 
 // PostUpdate present buffer to screen

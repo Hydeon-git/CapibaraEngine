@@ -15,8 +15,8 @@ bool fbxLoader::CleanUp()
 	return true;
 }
 
-void fbxLoader::LoadFile(char filePath[])
-{	
+void fbxLoader::LoadFile(const char* filePath)
+{
 	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
 	vertexData vData;
 	
@@ -48,10 +48,8 @@ void fbxLoader::LoadFile(char filePath[])
 						memcpy(&vData.index[i * 3], sceneMesh->mFaces[i].mIndices, 3 * sizeof(uint));
 					}						
 				}
-			}			
-			glGenBuffers(1, (GLuint*)&(sceneMesh));
-			glBindBuffer(GL_ARRAY_BUFFER, (GLuint)&(sceneMesh));
-			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vData.num_vertex * 3, vData.vertex, GL_STATIC_DRAW);
+			}
+			CreateMeshBuffers(vData);
 		}		
 		aiReleaseImport(scene);
 	}
@@ -59,6 +57,18 @@ void fbxLoader::LoadFile(char filePath[])
 	{
 		LOG("Error loading scene % s", filePath);
 	}
-	
+}
 
+void fbxLoader::CreateMeshBuffers(vertexData vData)
+{
+	// Initialization of the vertex and index from the mesh data
+	// Vertex
+	glGenBuffers(1, &vData.id_vertex);
+	glBindBuffer(GL_ARRAY_BUFFER, vData.id_vertex);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vData.num_vertex * 3, vData.vertex, GL_STATIC_DRAW);
+
+	// Index
+	glGenBuffers(1, &vData.id_index);
+	glBindBuffer(GL_ARRAY_BUFFER, vData.id_index);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vData.id_index, vData.index, GL_STATIC_DRAW);
 }
