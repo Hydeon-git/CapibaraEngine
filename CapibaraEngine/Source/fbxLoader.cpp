@@ -48,7 +48,10 @@ void fbxLoader::LoadFile(char filePath[])
 						memcpy(&vData.index[i * 3], sceneMesh->mFaces[i].mIndices, 3 * sizeof(uint));
 					}						
 				}
-			}
+			}			
+			glGenBuffers(1, (GLuint*)&(sceneMesh));
+			glBindBuffer(GL_ARRAY_BUFFER, (GLuint)&(sceneMesh));
+			glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vData.num_vertex * 3, vData.vertex, GL_STATIC_DRAW);
 		}		
 		aiReleaseImport(scene);
 	}

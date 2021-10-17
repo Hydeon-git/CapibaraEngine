@@ -9,6 +9,12 @@
 #include "postprocess.h"
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
+// Opengl + Glew
+#include "glew.h";
+#include "SDL_opengl.h"
+#include <gl/GL.h>
+#include <gl/GLU.h>
+
 typedef unsigned int uint;
 
 class fbxLoader
@@ -33,4 +39,5 @@ private:
 
 public:
 	void LoadFile(char filePath[]);
+	void DrawMesh(aiMesh mesh, char filePath[]);
 };
