@@ -157,7 +157,10 @@ bool ModuleRenderer3D::PreUpdate(float dt)
 bool ModuleRenderer3D::Draw()
 {
 	bool ret = true;
-	meshLoader.LoadFile("Game\Assets\BakerHouse.fbx");
+	meshLoader.LoadFile("C:\\Users\\albertpp7\\Desktop\\CapibaraEngine\\CapibaraEngine\\Game\\Assets\\warrior.FBX", meshData);
+	meshData.CreateMeshBuffers();
+	meshData.DrawMesh();
+
 	return true;
 }
 
@@ -201,6 +204,26 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+}
+
+void mesh::CreateMeshBuffers()
+{
+	// Initialization of the vertex and index from the mesh data
+	// Vertex
+	glGenBuffers(1, &id_vertex);
+	glBindBuffer(GL_ARRAY_BUFFER, id_vertex);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * num_vertex * 3, vertex, GL_STATIC_DRAW);
+
+	// Index
+	glGenBuffers(1, &id_index);
+	glBindBuffer(GL_ARRAY_BUFFER, id_index);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * id_index, index, GL_STATIC_DRAW);
+}
+
+void mesh::DrawMesh()
+{
+	//BindElementBuffer
+	glDrawElements(GL_TRIANGLES, num_index, GL_UNSIGNED_INT, index);
 }
 
 void ModuleRenderer3D::DrawDirectCube()

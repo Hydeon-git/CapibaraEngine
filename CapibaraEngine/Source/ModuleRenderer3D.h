@@ -10,6 +10,21 @@
 
 typedef unsigned int GLuint;
 
+struct mesh
+{
+	void CreateMeshBuffers();
+	void DrawMesh();
+
+	uint id_index = 0; // Index in VRAM
+	uint num_index = 0;
+	uint* index = nullptr;
+
+	uint id_vertex = 0; // Unique vertex in VRAM
+	uint num_vertex = 0;
+	float* vertex = nullptr;
+};
+
+
 class ModuleRenderer3D : public Module
 {
 public:
@@ -27,7 +42,7 @@ public:
 	void DrawElementsCube();
 	
 public:
-	std::vector<unsigned int> indices;
+	std::vector<uint> indices;
 	std::vector<float> interleavedVertices;
 	int interleavedStride;
 
@@ -38,4 +53,5 @@ public:
 
 private:
 	fbxLoader meshLoader;
+	mesh meshData;
 };

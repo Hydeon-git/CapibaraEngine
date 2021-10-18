@@ -1,5 +1,6 @@
 #include "fbxLoader.h"
-
+#include "ModuleRenderer3D.h"
+#pragma comment (lib, "assimp-vc142-mt.lib")
 
 fbxLoader::fbxLoader(bool enabled) 
 {
@@ -15,10 +16,10 @@ bool fbxLoader::CleanUp()
 	return true;
 }
 
-void fbxLoader::LoadFile(const char* filePath)
+void fbxLoader::LoadFile(const char* filePath, mesh& meshData)
 {
 	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
-	vertexData vData;
+	
 	
 	if ((scene != nullptr) && (scene->HasMeshes()))
 	{
@@ -27,30 +28,30 @@ void fbxLoader::LoadFile(const char* filePath)
 		{
 			aiMesh* sceneMesh = scene->mMeshes[i];			
 
-			vData.num_vertex = sceneMesh->mNumVertices;
-			vData.vertex = new float[vData.num_vertex * 3];
-			memcpy(vData.vertex, sceneMesh->mVertices, sizeof(float) * vData.num_vertex * 3);
-			LOG("New mesh with %d vertices", vData.num_vertex);
+			meshData.num_vertex = sceneMesh->mNumVertices;
+			meshData.vertex = new float[meshData.num_vertex * 3];
+			memcpy(meshData.vertex, sceneMesh->mVertices, sizeof(float) * meshData.num_vertex * 3);
+			LOG("New mesh with %d vertices", meshData.num_vertex);
 
 			// Copy faces
 			if (sceneMesh->HasFaces())
 			{
-				vData.num_index = sceneMesh->mNumFaces * 3;
-				vData.index = new uint[vData.num_index]; // Assume each face is a triangle
+				meshData.num_index = sceneMesh->mNumFaces * 3;
+				meshData.index = new uint[meshData.num_index]; // Assume each face is a triangle
 				for (uint i = 0; i < sceneMesh->mNumFaces; ++i)
 				{
 					if (sceneMesh->mFaces[i].mNumIndices != 3)
 					{
 						LOG("WARNING, geometry face with != 3 indices!");
-					}						
+					}
 					else
 					{
-						memcpy(&vData.index[i * 3], sceneMesh->mFaces[i].mIndices, 3 * sizeof(uint));
-					}						
+						memcpy(&meshData.index[i * 3], sceneMesh->mFaces[i].mIndices, 3 * sizeof(uint));
+					}
 				}
 			}
-			CreateMeshBuffers(vData);
-		}		
+			
+		}
 		aiReleaseImport(scene);
 	}
 	else
@@ -59,16 +60,3 @@ void fbxLoader::LoadFile(const char* filePath)
 	}
 }
 
-void fbxLoader::CreateMeshBuffers(vertexData vData)
-{
-	// Initialization of the vertex and index from the mesh data
-	// Vertex
-	glGenBuffers(1, &vData.id_vertex);
-	glBindBuffer(GL_ARRAY_BUFFER, vData.id_vertex);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vData.num_vertex * 3, vData.vertex, GL_STATIC_DRAW);
-
-	// Index
-	glGenBuffers(1, &vData.id_index);
-	glBindBuffer(GL_ARRAY_BUFFER, vData.id_index);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vData.id_index, vData.index, GL_STATIC_DRAW);
-}
