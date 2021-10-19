@@ -7,25 +7,23 @@
 #include "scene.h"
 #include "postprocess.h"
 
-
 // Opengl + Glew
 #include "glew.h";
 #include "SDL_opengl.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
+#include "MeshData.h"
 
 class fbxLoader
 {
 public:
 	fbxLoader(bool enabled = true);
-	~fbxLoader();		
-	
+	~fbxLoader();
+
+	void LoadFile(const char* filePath);
 	bool CleanUp();
 
 private:
-
-public:
-	
-	void LoadFile(const char* filePath, struct mesh& meshData);	
+	MeshData meshData;
 };

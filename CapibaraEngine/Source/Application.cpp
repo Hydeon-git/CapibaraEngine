@@ -18,7 +18,7 @@ Application::Application()
 	// Scenes
 	AddModule(editor);
 	AddModule(fileSystem);
-	AddModule(sceneIntro);	
+	AddModule(sceneIntro);
 
 	// Renderer3D
 	AddModule(renderer3D);

@@ -16,7 +16,7 @@ bool fbxLoader::CleanUp()
 	return true;
 }
 
-void fbxLoader::LoadFile(const char* filePath, mesh& meshData)
+void fbxLoader::LoadFile(const char* filePath)
 {
 	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
 	
@@ -50,7 +50,7 @@ void fbxLoader::LoadFile(const char* filePath, mesh& meshData)
 					}
 				}
 			}
-			
+			meshData.CreateMeshBuffers();
 		}
 		aiReleaseImport(scene);
 	}

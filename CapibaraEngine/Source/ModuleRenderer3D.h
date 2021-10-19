@@ -1,29 +1,15 @@
 #pragma once
+#include <vector>
+
 #include "Module.h"
 #include "Globals.h"
 #include "glmath.h"
 #include "Light.h"
-
-#include "fbxLoader.h"
+#include "SDL.h"
 
 #define MAX_LIGHTS 8
 
 typedef unsigned int GLuint;
-
-struct mesh
-{
-	void CreateMeshBuffers();
-	void DrawMesh();
-
-	uint id_index = 0; // Index in VRAM
-	uint num_index = 0;
-	uint* index = nullptr;
-
-	uint id_vertex = 0; // Unique vertex in VRAM
-	uint num_vertex = 0;
-	float* vertex = nullptr;
-};
-
 
 class ModuleRenderer3D : public Module
 {
@@ -50,8 +36,4 @@ public:
 	SDL_GLContext context;
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
-
-private:
-	fbxLoader meshLoader;
-	mesh meshData;
 };

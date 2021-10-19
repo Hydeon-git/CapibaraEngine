@@ -1,7 +1,11 @@
 #pragma once
+
+#include <vector>
 #include "Module.h"
 #include "Globals.h"
-#include <vector>
+
+#include "fbxLoader.h"
+#include "MeshData.h"
 
 using namespace std;
 
@@ -16,7 +20,9 @@ public:
 	bool PostUpdate(float dt);
 	bool CleanUp();
 	
-
 	vector<float> frames;
-public:
+
+private:
+	fbxLoader meshLoader;
+	MeshData meshData;
 };

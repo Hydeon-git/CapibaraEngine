@@ -64,6 +64,9 @@
     <Filter Include="Sources\Tools\PhysFS">
       <UniqueIdentifier>{f2de4004-06d3-4e37-856e-3f8f11531391}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Mesh">
+      <UniqueIdentifier>{eef4b7d2-102c-4221-b1e3-af24e71c03c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -580,7 +583,10 @@
       <Filter>Sources\Tools\Assimp</Filter>
     </ClInclude>
     <ClInclude Include="Source\fbxLoader.h">
-      <Filter>Sources</Filter>
+      <Filter>Sources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MeshData.h">
+      <Filter>Sources\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -804,7 +810,10 @@
       <Filter>Sources\Modules</Filter>
     </ClCompile>
     <ClCompile Include="Source\fbxLoader.cpp">
-      <Filter>Sources</Filter>
+      <Filter>Sources\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MeshData.cpp">
+      <Filter>Sources\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
