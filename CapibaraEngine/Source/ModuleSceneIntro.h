@@ -7,8 +7,6 @@
 #include "fbxLoader.h"
 #include "MeshData.h"
 
-using namespace std;
-
 class ModuleSceneIntro : public Module
 {
 public:
@@ -20,9 +18,10 @@ public:
 	bool PostUpdate(float dt);
 	bool CleanUp();
 	
-	vector<float> frames;
+	std::vector<float> frames;
+	fbxLoader meshLoader;
 
 private:
-	fbxLoader meshLoader;
-	MeshData meshData;
+	
+	std::vector<MeshData> meshData;
 };

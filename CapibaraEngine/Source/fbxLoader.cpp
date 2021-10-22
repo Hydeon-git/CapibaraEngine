@@ -16,7 +16,7 @@ bool fbxLoader::CleanUp()
 	return true;
 }
 
-void fbxLoader::LoadFile(const char* filePath)
+void fbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
 {
 	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
 	
@@ -24,9 +24,13 @@ void fbxLoader::LoadFile(const char* filePath)
 	if ((scene != nullptr) && (scene->HasMeshes()))
 	{
 		// Use scene->mNumMeshes to iterate on scene->mMeshes array
+		meshDataVec.resize(scene->mNumMeshes);
 		for (int i = 0; i < scene->mNumMeshes; i++)
 		{
+			MeshData& meshData = meshDataVec[i];
 			aiMesh* sceneMesh = scene->mMeshes[i];			
+
+			meshData.num_meshes = scene->mNumMeshes;
 
 			meshData.num_vertex = sceneMesh->mNumVertices;
 			meshData.vertex = new float[meshData.num_vertex * 3];

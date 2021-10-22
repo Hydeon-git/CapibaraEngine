@@ -315,18 +315,6 @@
     <ClInclude Include="External\mathgeolib\tests\TestRunner.h">
       <Filter>Sources\Tools\MathGeoLib\tests</Filter>
     </ClInclude>
-    <ClInclude Include="External\glew\include\eglew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\glew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\glxew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\wglew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ModuleEditor.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
@@ -587,6 +575,18 @@
     </ClInclude>
     <ClInclude Include="Source\MeshData.h">
       <Filter>Sources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\eglew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\glew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\glxew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\wglew.h">
+      <Filter>Sources\Tools\glew</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

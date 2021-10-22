@@ -21,7 +21,7 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	meshLoader.LoadFile("Assets/warrior.FBX");
+	meshLoader.LoadFile("Assets/BakerHouse.fbx", meshData);
 
 	return ret;
 }
@@ -32,7 +32,11 @@ bool ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	meshData.DrawMesh();
+	for (int i = 0; i < meshData.data()->num_meshes; i++)
+	{
+		meshData.data()->DrawMesh();
+	}
+	
 
 	return true;
 }
@@ -46,6 +50,7 @@ bool ModuleSceneIntro::PostUpdate(float dt)
 bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
+
 
 	return true;
 }

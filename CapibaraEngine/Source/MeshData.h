@@ -14,9 +14,12 @@ public:
 
 	// Mesh Buffers
 	uint* index = nullptr;	
-	float* vertex = nullptr;
+	float* vertex = nullptr;	
 
 	// Mesh Functions
 	void CreateMeshBuffers();
 	void DrawMesh();
+
+	// Number of meshes that the model has
+	uint num_meshes = 0;
 };

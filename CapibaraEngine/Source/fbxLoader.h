@@ -1,6 +1,9 @@
 #pragma once
 
+#include "Application.h"
 #include "Globals.h"
+
+#include <vector>
 
 // Assimp Includes + .lib
 #include "cimport.h"
@@ -21,9 +24,6 @@ public:
 	fbxLoader(bool enabled = true);
 	~fbxLoader();
 
-	void LoadFile(const char* filePath);
-	bool CleanUp();
-
-private:
-	MeshData meshData;
+	void LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec);
+	bool CleanUp();	
 };

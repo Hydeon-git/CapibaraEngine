@@ -10,8 +10,9 @@ Application::Application()
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
 
-	// Main Modules
 	AddModule(window);
+	AddModule(renderer3D);
+
 	AddModule(camera);
 	AddModule(input);
 
@@ -20,8 +21,6 @@ Application::Application()
 	AddModule(fileSystem);
 	AddModule(sceneIntro);
 
-	// Renderer3D
-	AddModule(renderer3D);
 	
 }
 
@@ -38,9 +37,7 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	// Call Init() in all modules
-	
-	
+	// Call Init() in all modules	
 	for (unsigned int i = 0; i < moduleList.size() && ret; i++)
 	{
 		ret = moduleList[i]->Init();

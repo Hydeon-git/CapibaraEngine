@@ -2,8 +2,8 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 
-#include "glew.h"
 #include "SDL_opengl.h"
+#include "glew.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
@@ -13,7 +13,8 @@
 #include "imgui_impl_opengl3.h"
 
 
-#pragma comment (lib, "glu32.lib")    /* link OpenGL Utility lib     */
+#pragma comment (lib, "glew32.lib")	/* link OpenGL Utility lib     */
+#pragma comment (lib, "glu32.lib")	/* link OpenGL Utility lib     */
 #pragma comment (lib, "opengl32.lib") /* link Microsoft OpenGL lib   */
 
 // Constructor
@@ -35,21 +36,31 @@ bool ModuleRenderer3D::Init()
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
+	//Create context
+	context = SDL_GL_CreateContext(App->window->window);
+	if (context == NULL)
+	{
+		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
+		ret = false;
+	}
+
 	// Initialize Glew
 	GLenum errorGlew = glewInit();
+	if (errorGlew != GLEW_OK)
+	{
+		int kk = 0;
+		LOG("ERROR: Could not initializate glew");
+
+		ret = false;
+	}
+
 	LOG("Using Glew %s", glewGetString(GLEW_VERSION));
 	LOG("Vendor: %s", glGetString(GL_VENDOR));
 	LOG("Renderer: %s", glGetString(GL_RENDERER));
 	LOG("OpenGL version supported %s", glGetString(GL_VERSION));
 	LOG("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 	
-	//Create context
-	context = SDL_GL_CreateContext(App->window->window);
-	if(context == NULL)
-	{
-		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
-		ret = false;
-	}
+	
 	
 	if(ret == true)
 	{
