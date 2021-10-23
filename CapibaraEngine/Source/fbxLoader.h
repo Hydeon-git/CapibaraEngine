@@ -18,11 +18,11 @@
 
 #include "MeshData.h"
 
-class fbxLoader
+class FbxLoader
 {
 public:
-	fbxLoader(bool enabled = true);
-	~fbxLoader();
+	FbxLoader(bool enabled = true);
+	~FbxLoader();
 
 	void LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec);
 	bool CleanUp();	

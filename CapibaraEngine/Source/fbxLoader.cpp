@@ -2,21 +2,21 @@
 #include "ModuleRenderer3D.h"
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
-fbxLoader::fbxLoader(bool enabled) 
+FbxLoader::FbxLoader(bool enabled)
 {
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
 	aiAttachLogStream(&stream);
 }
-fbxLoader::~fbxLoader() {}
+FbxLoader::~FbxLoader() {}
 
-bool fbxLoader::CleanUp()
+bool FbxLoader::CleanUp()
 {
 	aiDetachAllLogStreams();
 	return true;
 }
 
-void fbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
+void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
 {
 	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
 	

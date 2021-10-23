@@ -238,7 +238,7 @@
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\ConsolePanel.h" />
-    <ClInclude Include="Source\fbxLoader.h" />
+    <ClInclude Include="Source\FbxLoader.h" />
     <ClInclude Include="Source\glmath.h" />
     <ClInclude Include="Source\Globals.h" />
     <ClInclude Include="Source\Light.h" />
@@ -316,7 +316,7 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\ConsolePanel.cpp" />
-    <ClCompile Include="Source\fbxLoader.cpp" />
+    <ClCompile Include="Source\FbxLoader.cpp" />
     <ClCompile Include="Source\glmath.cpp" />
     <ClCompile Include="Source\Light.cpp" />
     <ClCompile Include="Source\log.cpp" />

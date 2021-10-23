@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 
-#include "fbxLoader.h"
+#include "FbxLoader.h"
 #include "MeshData.h"
 
 class ModuleSceneIntro : public Module
@@ -16,12 +16,8 @@ public:
 	bool Start();
 	bool Update(float dt);
 	bool PostUpdate(float dt);
-	bool CleanUp();
-	
-	std::vector<float> frames;
-	fbxLoader meshLoader;
+	bool CleanUp();	
 
 private:
-	
 	std::vector<MeshData> meshData;
 };

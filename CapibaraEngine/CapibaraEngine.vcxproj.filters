@@ -570,7 +570,7 @@
     <ClInclude Include="External\assimp\include\config.h">
       <Filter>Sources\Tools\Assimp</Filter>
     </ClInclude>
-    <ClInclude Include="Source\fbxLoader.h">
+    <ClInclude Include="Source\FbxLoader.h">
       <Filter>Sources\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="Source\MeshData.h">
@@ -809,7 +809,7 @@
     <ClCompile Include="Source\ModuleFileSystem.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\fbxLoader.cpp">
+    <ClCompile Include="Source\FbxLoader.cpp">
       <Filter>Sources\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Source\MeshData.cpp">

@@ -31,11 +31,11 @@ void MeshData::DrawMesh()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
 
 	glDrawElements(GL_TRIANGLES, num_index, GL_UNSIGNED_INT, NULL);
-	/*
+	
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	//--Disables States--//
 	glDisableClientState(GL_VERTEX_ARRAY);
-	*/
+	
 }
