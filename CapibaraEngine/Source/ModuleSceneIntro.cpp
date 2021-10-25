@@ -28,11 +28,15 @@ bool ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	for (int i = 0; i < meshData.data()->num_meshes; i++)
+	return true;
+}
+
+bool ModuleSceneIntro::Draw()
+{
+	for (int i = 0; i < meshData.size(); i++)
 	{
-		meshData.data()->DrawMesh();
+		meshData[i].DrawMesh();
 	}
-	
 
 	return true;
 }
