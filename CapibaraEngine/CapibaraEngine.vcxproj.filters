@@ -67,6 +67,9 @@
     <Filter Include="Sources\Mesh">
       <UniqueIdentifier>{eef4b7d2-102c-4221-b1e3-af24e71c03c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Tools\DeviL">
+      <UniqueIdentifier>{104d2db2-7389-4c59-8aca-421051afa73f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -588,6 +591,30 @@
     <ClInclude Include="External\glew\include\wglew.h">
       <Filter>Sources\Tools\glew</Filter>
     </ClInclude>
+    <ClInclude Include="External\deviL\include\devil_cpp_wrapper.hpp">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\devil_internal_exports.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\il.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\il_wrap.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\ilu.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\ilu_region.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\ilut.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
+    <ClInclude Include="External\deviL\include\ilut_config.h">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -864,6 +891,12 @@
     </None>
     <None Include="External\assimp\include\vector3.inl">
       <Filter>Sources\Tools\Assimp</Filter>
+    </None>
+    <None Include="External\deviL\include\config.h.win">
+      <Filter>Sources\Tools\DeviL</Filter>
+    </None>
+    <None Include="External\deviL\include\stamp-h.in">
+      <Filter>Sources\Tools\DeviL</Filter>
     </None>
   </ItemGroup>
 </Project>
