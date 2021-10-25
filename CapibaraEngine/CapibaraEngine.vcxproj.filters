@@ -64,6 +64,9 @@
     <Filter Include="Sources\Tools\PhysFS">
       <UniqueIdentifier>{f2de4004-06d3-4e37-856e-3f8f11531391}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Mesh">
+      <UniqueIdentifier>{eef4b7d2-102c-4221-b1e3-af24e71c03c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -311,18 +314,6 @@
     </ClInclude>
     <ClInclude Include="External\mathgeolib\tests\TestRunner.h">
       <Filter>Sources\Tools\MathGeoLib\tests</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\eglew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\glew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\glxew.h">
-      <Filter>Sources\Tools\glew</Filter>
-    </ClInclude>
-    <ClInclude Include="External\glew\include\wglew.h">
-      <Filter>Sources\Tools\glew</Filter>
     </ClInclude>
     <ClInclude Include="Source\ModuleEditor.h">
       <Filter>Sources\Modules</Filter>
@@ -579,6 +570,24 @@
     <ClInclude Include="External\assimp\include\config.h">
       <Filter>Sources\Tools\Assimp</Filter>
     </ClInclude>
+    <ClInclude Include="Source\FbxLoader.h">
+      <Filter>Sources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MeshData.h">
+      <Filter>Sources\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\eglew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\glew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\glxew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
+    <ClInclude Include="External\glew\include\wglew.h">
+      <Filter>Sources\Tools\glew</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -799,6 +808,12 @@
     </ClCompile>
     <ClCompile Include="Source\ModuleFileSystem.cpp">
       <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FbxLoader.cpp">
+      <Filter>Sources\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MeshData.cpp">
+      <Filter>Sources\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

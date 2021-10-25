@@ -1,9 +1,11 @@
 #pragma once
+
+#include <vector>
 #include "Module.h"
 #include "Globals.h"
-#include <vector>
 
-using namespace std;
+#include "FbxLoader.h"
+#include "MeshData.h"
 
 class ModuleSceneIntro : public Module
 {
@@ -11,12 +13,13 @@ public:
 	ModuleSceneIntro(Application* app, bool start_enabled = true);
 	~ModuleSceneIntro();
 
-	bool Start();
-	bool Update(float dt);
-	bool PostUpdate(float dt);
-	bool CleanUp();
-	
+	bool Start() override;
+	bool Update(float dt) override;
+	bool Draw() override;
+	bool PostUpdate(float dt) override;
+	bool CleanUp() override;
 
-	vector<float> frames;
-public:
+private:
+	std::vector<MeshData> meshData;
+	
 };

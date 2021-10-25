@@ -33,6 +33,11 @@ public:
 	{
 		return true;
 	}
+	
+	virtual bool Draw()
+	{
+		return true;
+	}
 
 	virtual bool PostUpdate(float dt)
 	{

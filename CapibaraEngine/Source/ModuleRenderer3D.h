@@ -1,8 +1,11 @@
 #pragma once
+#include <vector>
+
 #include "Module.h"
 #include "Globals.h"
 #include "glmath.h"
 #include "Light.h"
+#include "SDL.h"
 
 #define MAX_LIGHTS 8
 
@@ -16,6 +19,7 @@ public:
 
 	bool Init() override;
 	bool PreUpdate(float dt) override;
+	bool Draw() override;
 	bool PostUpdate(float dt) override;
 	bool CleanUp() override;
 
@@ -24,7 +28,7 @@ public:
 	void DrawElementsCube();
 	
 public:
-	std::vector<unsigned int> indices;
+	std::vector<uint> indices;
 	std::vector<float> interleavedVertices;
 	int interleavedStride;
 
