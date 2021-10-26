@@ -21,12 +21,17 @@ void MeshData::CreateMeshBuffers()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * num_index, index, GL_STATIC_DRAW);	
 
-	// Textures
-
+	
 }
 
 void MeshData::CreateTextureBuffers(const void *checkerImage)
 {
+	// Textures
+	glGenBuffers(1, &buffertextureid);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffertextureid);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * num_textures, textures, GL_STATIC_DRAW);
+
+
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glGenTextures(1, &textureid);
 	glBindTexture(GL_TEXTURE_2D, textureid);
