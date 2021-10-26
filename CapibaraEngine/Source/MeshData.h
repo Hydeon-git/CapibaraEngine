@@ -16,10 +16,15 @@ public:
 	uint* index = nullptr;	
 	float* vertex = nullptr;	
 
+	// Number of meshes that the model has
+	uint num_meshes = 0;
+
 	// Mesh Functions
 	void CreateMeshBuffers();
 	void DrawMesh();
 
-	// Number of meshes that the model has
-	uint num_meshes = 0;
+	// Texture Functions	
+	void CreateTextureBuffers(const void *checkerImage);
+
+	uint textureid;
 };

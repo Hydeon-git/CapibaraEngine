@@ -18,8 +18,20 @@ bool FbxLoader::CleanUp()
 
 void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
 {
-	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
-	
+	GLubyte checkerImage[256][256][4];
+	for (int i = 0; i < 256; i++) 
+	{
+		for (int j = 0; j < 256; j++) 
+		{
+			int c = ((((i & 0x8) == 0) ^ (((j & 0x8)) == 0))) * 255;
+			checkerImage[i][j][0] = (GLubyte)c;
+			checkerImage[i][j][1] = (GLubyte)c;
+			checkerImage[i][j][2] = (GLubyte)c;
+			checkerImage[i][j][3] = (GLubyte)255;
+		}
+	}
+
+	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);	
 	
 	if ((scene != nullptr) && (scene->HasMeshes()))
 	{
@@ -55,6 +67,7 @@ void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVe
 				}
 			}
 			meshData.CreateMeshBuffers();
+			meshData.CreateTextureBuffers(checkerImage);			
 		}
 		aiReleaseImport(scene);
 	}
@@ -63,4 +76,3 @@ void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVe
 		LOG("Error loading scene % s", filePath);
 	}
 }
-
