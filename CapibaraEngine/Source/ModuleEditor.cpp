@@ -101,14 +101,14 @@ bool ModuleEditor::Update(float dt)
 		{
 			static char app_name[20];
 			strcpy_s(app_name, 20, TITLE);
-			if (ImGui::InputText(" App Name", app_name, 20))
+			if (ImGui::InputText("App Name", app_name, 20))
 			{
 				App->window->SetTitle(app_name);
 			}
 			ImGui::Spacing();
 
 			static char organization[20] = ORG;
-			ImGui::InputText(" Organization", organization, 20);
+			ImGui::InputText("Organization", organization, 20);
 			ImGui::Spacing();
 
 						
@@ -177,14 +177,23 @@ bool ModuleEditor::Update(float dt)
 			//App->window->SetResizable((SDL_bool)resizable);
 
 		}
-		if (ImGui::CollapsingHeader("File System"))
-		{
-
-
-		}
 		if (ImGui::CollapsingHeader("Input"))
 		{
+			int mouseX, mouseY;
+			App->input->GetMousePosition(mouseX, mouseY);
+			ImGui::Text("Mouse Position:");
+			ImGui::SameLine();
+			ImGui::TextColored({ 255,255,0,255 }, "%i,%i", mouseX, mouseY);
 
+			App->input->GetMouseMotion(mouseX, mouseY);
+			ImGui::Text("Mouse Motion:");
+			ImGui::SameLine();
+			ImGui::TextColored({ 255,255,0,255 }, "%i,%i", mouseX, mouseY);
+
+			int wheel = App->input->GetMouseZ();
+			ImGui::Text("Mouse Wheel:");
+			ImGui::SameLine();
+			ImGui::TextColored({ 255,255,0,255 }, "%i", wheel);
 
 		}
 		if (ImGui::CollapsingHeader("Hardware"))
