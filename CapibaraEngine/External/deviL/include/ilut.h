@@ -21,8 +21,8 @@
 #define __ilut_h_
 #define __ILUT_H__
 
-#include <IL/il.h>
-#include <IL/ilu.h>
+#include <il.h>
+#include <ilu.h>
 
 
 //-----------------------------------------------------------------------------
@@ -97,7 +97,7 @@
 		#endif
 	#endif
 
-	#include <IL/ilut_config.h>
+	#include <ilut_config.h>
 #endif
 
 
@@ -117,6 +117,8 @@
 		#include <OpenGL/gl.h>
 		#include <OpenGL/glu.h>
 	#else
+		#include "glew.h";
+		#include "SDL_opengl.h"
 	 	#include <GL/gl.h>
  		#include <GL/glu.h>
 	#endif//__APPLE__

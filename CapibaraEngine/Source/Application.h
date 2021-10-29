@@ -7,7 +7,7 @@
 #include "Module.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
-#include "ModuleSceneIntro.h"
+#include "EngineScene.h"
 #include "ModuleEditor.h"
 #include "ModuleFileSystem.h"
 #include "ModuleRenderer3D.h"
@@ -15,17 +15,20 @@
 
 #include <string>
 
+// Forward Declaration for loaders
 class ModuleFbxLoader;
+class ModuleTextureLoader;
 
 class Application
 {
 public:
 	ModuleWindow* window;
 	ModuleInput* input;
-	ModuleSceneIntro* sceneIntro;
+	EngineScene* sceneIntro;
 	ModuleEditor* editor;
 	ModuleFileSystem* fileSystem;
 	ModuleFbxLoader* fbxLoader;
+	ModuleTextureLoader* textureLoader;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 

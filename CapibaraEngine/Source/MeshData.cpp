@@ -8,7 +8,7 @@
 
 
 
-void MeshData::CreateMeshBuffers()
+void MeshData::CreateBuffers()
 {
 	// Initialization of the vertex and index from the mesh data
 	// Vertex
@@ -21,27 +21,10 @@ void MeshData::CreateMeshBuffers()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * num_index, index, GL_STATIC_DRAW);	
 
-	
-}
-
-void MeshData::CreateTextureBuffers(const void *checkerImage)
-{
 	// Textures
-	glGenBuffers(1, &buffertextureid);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffertextureid);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * num_textures, textures, GL_STATIC_DRAW);
-
-
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glGenTextures(1, &textureid);
-	glBindTexture(GL_TEXTURE_2D, textureid);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 256,
-		0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
-	glEnable(GL_TEXTURE_2D);
+	glGenBuffers(1, &id_texture);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_texture);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * num_index, textures, GL_STATIC_DRAW);
 }
 
 bool MeshData::DrawMesh()
@@ -52,10 +35,10 @@ bool MeshData::DrawMesh()
 	glBindBuffer(GL_ARRAY_BUFFER, id_vertex);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
 
-	glBindBuffer(GL_ARRAY_BUFFER, textureid);
+	glBindBuffer(GL_ARRAY_BUFFER, id_texture);
 	glTexCoordPointer(2, GL_FLOAT, 0, NULL);
 
-	glBindTexture(GL_TEXTURE_2D, textureid);
+	glBindTexture(GL_TEXTURE_2D, id_texture);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
 
 	glDrawElements(GL_TRIANGLES, num_index, GL_UNSIGNED_INT, NULL);

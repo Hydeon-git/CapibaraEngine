@@ -6,11 +6,6 @@
 
 #include <vector>
 
-// Assimp Includes + .lib
-#include "cimport.h"
-#include "scene.h"
-#include "postprocess.h"
-
 #include "MeshData.h"
 
 class ModuleFbxLoader : public Module

@@ -1,26 +1,29 @@
 #include "Application.h"
 #include "ModuleFbxLoader.h"
+#include "ModuleTextureLoader.h"
 
 Application::Application()
 {
 	window = new ModuleWindow(this);
 	input = new ModuleInput(this);
-	sceneIntro = new ModuleSceneIntro(this, true);
+	sceneIntro = new EngineScene(this, true);
 	editor = new ModuleEditor(this, true);
 	fileSystem = new ModuleFileSystem(this, true);
 	fbxLoader = new ModuleFbxLoader(this, true);
+	textureLoader = new ModuleTextureLoader(this, true);
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
 
-
+	// System Modules
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);	
 
-	// System
+	// Engine Management
 	AddModule(editor);
 	AddModule(fileSystem);
 	AddModule(fbxLoader);
+	AddModule(textureLoader);
 
 	// Scene
 	AddModule(sceneIntro);

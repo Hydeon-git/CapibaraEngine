@@ -6,11 +6,11 @@
 
 #include "MeshData.h"
 
-class ModuleSceneIntro : public Module
+class EngineScene : public Module
 {
 public:
-	ModuleSceneIntro(Application* app, bool start_enabled = true);
-	~ModuleSceneIntro();
+	EngineScene(Application* app, bool start_enabled = true);
+	~EngineScene();
 
 	bool Start() override;
 	bool Update(float dt) override;

@@ -1,15 +1,16 @@
 #include "Globals.h"
 #include "Application.h"
 #include "Primitive.h"
-#include "ModuleSceneIntro.h"
+#include "EngineScene.h"
 #include "ModuleInput.h"
 #include "ModuleFbxLoader.h"
+#include "ModuleTextureLoader.h"
 
-ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled) {}
-ModuleSceneIntro::~ModuleSceneIntro() {}
+EngineScene::EngineScene(Application* app, bool start_enabled) : Module(app, start_enabled) {}
+EngineScene::~EngineScene() {}
 
 // Load assets
-bool ModuleSceneIntro::Start()
+bool EngineScene::Start()
 {
 	LOG("Loading Intro assets");
 	bool ret = true;
@@ -18,11 +19,12 @@ bool ModuleSceneIntro::Start()
 	App->camera->LookAt(vec3(0, 0, 0));
 
 	App->fbxLoader->LoadFile("Assets/BakerHouse.fbx", meshData);
+	App->textureLoader->LoadTexture("Textures/bakeHouse.png");
 	
 	return ret;
 }
 
-bool ModuleSceneIntro::Update(float dt)
+bool EngineScene::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
@@ -31,7 +33,7 @@ bool ModuleSceneIntro::Update(float dt)
 	return true;
 }
 
-bool ModuleSceneIntro::Draw()
+bool EngineScene::Draw()
 {
 	for (int i = 0; i < meshData.size(); i++)
 	{
@@ -41,13 +43,13 @@ bool ModuleSceneIntro::Draw()
 	return true;
 }
 
-bool ModuleSceneIntro::PostUpdate(float dt)
+bool EngineScene::PostUpdate(float dt)
 {		
 	return true;
 }
 
 // Unload assets
-bool ModuleSceneIntro::CleanUp()
+bool EngineScene::CleanUp()
 {
 	LOG("Unloading Intro scene");
 

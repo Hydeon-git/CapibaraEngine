@@ -7,6 +7,10 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
+// Assimp Includes + .lib
+#include "cimport.h"
+#include "scene.h"
+#include "postprocess.h"
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
 ModuleFbxLoader::ModuleFbxLoader(Application* app, bool enabled) : Module(app, enabled)
@@ -25,19 +29,6 @@ bool ModuleFbxLoader::CleanUp()
 
 void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
 {
-	GLubyte checkerImage[256][256][4];
-	for (int i = 0; i < 256; i++) 
-	{
-		for (int j = 0; j < 256; j++) 
-		{
-			int c = ((((i & 0x8) == 0) ^ (((j & 0x8)) == 0))) * 255;
-			checkerImage[i][j][0] = (GLubyte)c;
-			checkerImage[i][j][1] = (GLubyte)c;
-			checkerImage[i][j][2] = (GLubyte)c;
-			checkerImage[i][j][3] = (GLubyte)255;
-		}
-	}
-
 	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);	
 	
 	if ((scene != nullptr) && (scene->HasMeshes()))
@@ -73,8 +64,7 @@ void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& mesh
 					}
 				}
 			}
-			meshData.CreateMeshBuffers();
-			meshData.CreateTextureBuffers(checkerImage);			
+			meshData.CreateBuffers();			
 		}
 		aiReleaseImport(scene);
 	}
