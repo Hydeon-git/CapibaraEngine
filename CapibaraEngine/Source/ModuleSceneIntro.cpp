@@ -3,6 +3,7 @@
 #include "Primitive.h"
 #include "ModuleSceneIntro.h"
 #include "ModuleInput.h"
+#include "ModuleFbxLoader.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled) {}
 ModuleSceneIntro::~ModuleSceneIntro() {}
@@ -16,9 +17,8 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	FbxLoader fbxLoader;
-	fbxLoader.LoadFile("Assets/BakerHouse.fbx", meshData);
-
+	App->fbxLoader->LoadFile("Assets/BakerHouse.fbx", meshData);
+	
 	return ret;
 }
 

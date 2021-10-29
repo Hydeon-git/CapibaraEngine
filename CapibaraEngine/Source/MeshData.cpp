@@ -44,7 +44,7 @@ void MeshData::CreateTextureBuffers(const void *checkerImage)
 	glEnable(GL_TEXTURE_2D);
 }
 
-void MeshData::DrawMesh()
+bool MeshData::DrawMesh()
 {
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -68,4 +68,6 @@ void MeshData::DrawMesh()
 	//--Disables States--//
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	return true;
 }

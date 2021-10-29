@@ -23,7 +23,7 @@ public:
 
 	// Mesh Functions
 	void CreateMeshBuffers();
-	void DrawMesh();
+	bool DrawMesh();
 
 	// Texture Functions	
 	void CreateTextureBuffers(const void *checkerImage);

@@ -4,7 +4,6 @@
 #include "Module.h"
 #include "Globals.h"
 
-#include "FbxLoader.h"
 #include "MeshData.h"
 
 class ModuleSceneIntro : public Module
@@ -19,7 +18,6 @@ public:
 	bool PostUpdate(float dt) override;
 	bool CleanUp() override;
 
-private:
+
 	std::vector<MeshData> meshData;
-	
 };

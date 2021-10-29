@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "ModuleFbxLoader.h"
 
 Application::Application()
 {
@@ -7,6 +8,7 @@ Application::Application()
 	sceneIntro = new ModuleSceneIntro(this, true);
 	editor = new ModuleEditor(this, true);
 	fileSystem = new ModuleFileSystem(this, true);
+	fbxLoader = new ModuleFbxLoader(this, true);
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
 
@@ -16,9 +18,12 @@ Application::Application()
 	AddModule(camera);
 	AddModule(input);
 
-	// Scenes
+	// System
 	AddModule(editor);
 	AddModule(fileSystem);
+	AddModule(fbxLoader);
+
+	// Scene
 	AddModule(sceneIntro);
 
 	

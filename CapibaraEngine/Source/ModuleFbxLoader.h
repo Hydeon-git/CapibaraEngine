@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Application.h"
+#include "Module.h"
 #include "Globals.h"
 
 #include <vector>
@@ -10,20 +11,14 @@
 #include "scene.h"
 #include "postprocess.h"
 
-// Opengl + Glew
-#include "glew.h";
-#include "SDL_opengl.h"
-#include <gl/GL.h>
-#include <gl/GLU.h>
-
 #include "MeshData.h"
 
-class FbxLoader
+class ModuleFbxLoader : public Module
 {
 public:
-	FbxLoader(bool enabled = true);
-	~FbxLoader();
+	ModuleFbxLoader(Application* app, bool enabled = true);
+	~ModuleFbxLoader();
 
 	void LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec);
-	bool CleanUp();	
+	bool CleanUp() override;
 };

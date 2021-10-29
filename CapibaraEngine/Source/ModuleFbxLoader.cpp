@@ -1,22 +1,29 @@
-#include "fbxLoader.h"
+#include "ModuleFbxLoader.h"
 #include "ModuleRenderer3D.h"
+// Opengl + Glew
+
+#include "glew.h";
+#include "SDL_opengl.h"
+#include <gl/GL.h>
+#include <gl/GLU.h>
+
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
-FbxLoader::FbxLoader(bool enabled)
+ModuleFbxLoader::ModuleFbxLoader(Application* app, bool enabled) : Module(app, enabled)
 {
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
 	aiAttachLogStream(&stream);
 }
-FbxLoader::~FbxLoader() {}
+ModuleFbxLoader::~ModuleFbxLoader() {}
 
-bool FbxLoader::CleanUp()
+bool ModuleFbxLoader::CleanUp()
 {
 	aiDetachAllLogStreams();
 	return true;
 }
 
-void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
+void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
 {
 	GLubyte checkerImage[256][256][4];
 	for (int i = 0; i < 256; i++) 
