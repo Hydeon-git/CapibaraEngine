@@ -13,9 +13,8 @@ Application::Application()
 	camera = new ModuleCamera3D(this);
 
 	AddModule(window);
-
 	AddModule(camera);
-	AddModule(input);
+	AddModule(input);	
 
 	// System
 	AddModule(editor);
@@ -25,6 +24,7 @@ Application::Application()
 	// Scene
 	AddModule(sceneIntro);
 
+	// Renderer Last
 	AddModule(renderer3D);
 
 	
