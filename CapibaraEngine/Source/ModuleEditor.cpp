@@ -172,11 +172,10 @@ bool ModuleEditor::Update(float dt)
 				SDL_SetWindowFullscreen(App->window->window, fullDesktop);
 			}
 
-			
-			
 			//App->window->SetResizable((SDL_bool)resizable);
 
 		}
+
 		if (ImGui::CollapsingHeader("Input"))
 		{
 			int mouseX, mouseY;
@@ -196,6 +195,7 @@ bool ModuleEditor::Update(float dt)
 			ImGui::TextColored({ 255,255,0,255 }, "%i", wheel);
 
 		}
+
 		if (ImGui::CollapsingHeader("Hardware"))
 		{
 			SDL_version version;
@@ -246,6 +246,7 @@ bool ModuleEditor::Update(float dt)
 				"\n- MathGeoLib 1.5"
 				"\n- OpenGL 3.1"
 				"\n- Assimp 5.0.1"
+				"\n- DevIL 1.8.0"
 				"\n\nLicense:"
 				"\n\nMIT License"
 				"\n\nCopyright (c) 2021 Capibara Engine"
@@ -256,7 +257,7 @@ bool ModuleEditor::Update(float dt)
 		ImGui::End();
 	}
 
-	//ret = consolePanel.Update(dt);
+	ret = consolePanel.Update(dt);
 	return ret;
 }
 
