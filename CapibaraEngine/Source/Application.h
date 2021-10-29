@@ -15,6 +15,8 @@
 
 #include <string>
 
+class ModuleFbxLoader;
+
 class Application
 {
 public:
@@ -23,6 +25,7 @@ public:
 	ModuleSceneIntro* sceneIntro;
 	ModuleEditor* editor;
 	ModuleFileSystem* fileSystem;
+	ModuleFbxLoader* fbxLoader;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 

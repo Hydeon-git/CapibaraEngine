@@ -1,25 +1,44 @@
-#include "fbxLoader.h"
+#include "ModuleFbxLoader.h"
 #include "ModuleRenderer3D.h"
+// Opengl + Glew
+
+#include "glew.h";
+#include "SDL_opengl.h"
+#include <gl/GL.h>
+#include <gl/GLU.h>
+
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
-FbxLoader::FbxLoader(bool enabled)
+ModuleFbxLoader::ModuleFbxLoader(Application* app, bool enabled) : Module(app, enabled)
 {
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
 	aiAttachLogStream(&stream);
 }
-FbxLoader::~FbxLoader() {}
+ModuleFbxLoader::~ModuleFbxLoader() {}
 
-bool FbxLoader::CleanUp()
+bool ModuleFbxLoader::CleanUp()
 {
 	aiDetachAllLogStreams();
 	return true;
 }
 
-void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
+void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
 {
-	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);
-	
+	GLubyte checkerImage[256][256][4];
+	for (int i = 0; i < 256; i++) 
+	{
+		for (int j = 0; j < 256; j++) 
+		{
+			int c = ((((i & 0x8) == 0) ^ (((j & 0x8)) == 0))) * 255;
+			checkerImage[i][j][0] = (GLubyte)c;
+			checkerImage[i][j][1] = (GLubyte)c;
+			checkerImage[i][j][2] = (GLubyte)c;
+			checkerImage[i][j][3] = (GLubyte)255;
+		}
+	}
+
+	const aiScene* scene = aiImportFile(filePath, aiProcessPreset_TargetRealtime_MaxQuality);	
 	
 	if ((scene != nullptr) && (scene->HasMeshes()))
 	{
@@ -55,6 +74,7 @@ void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVe
 				}
 			}
 			meshData.CreateMeshBuffers();
+			meshData.CreateTextureBuffers(checkerImage);			
 		}
 		aiReleaseImport(scene);
 	}
@@ -63,4 +83,3 @@ void FbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVe
 		LOG("Error loading scene % s", filePath);
 	}
 }
-

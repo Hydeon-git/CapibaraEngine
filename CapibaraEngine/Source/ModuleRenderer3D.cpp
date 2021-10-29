@@ -2,10 +2,12 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 
-#include "SDL_opengl.h"
 #include "glew.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
+
+#include "SDL_opengl.h"
+
 
 // Imgui
 #include "imgui.h"

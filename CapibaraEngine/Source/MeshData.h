@@ -11,15 +11,23 @@ public:
 	// Mesh Buffers Size
 	uint num_index = 0;
 	uint num_vertex = 0;
+	uint num_textures = 0;
 
 	// Mesh Buffers
 	uint* index = nullptr;	
 	float* vertex = nullptr;	
-
-	// Mesh Functions
-	void CreateMeshBuffers();
-	void DrawMesh();
+	float* textures = nullptr;	
 
 	// Number of meshes that the model has
 	uint num_meshes = 0;
+
+	// Mesh Functions
+	void CreateMeshBuffers();
+	bool DrawMesh();
+
+	// Texture Functions	
+	void CreateTextureBuffers(const void *checkerImage);
+
+	uint textureid = 0;
+	uint buffertextureid = 0;
 };
