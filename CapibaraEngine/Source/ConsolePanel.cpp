@@ -6,7 +6,11 @@ ConsolePanel::~ConsolePanel() {}
 
 bool ConsolePanel::Update(float dt)
 {
-	ImGui::Begin("Console", &console);
+	if (ImGui::Begin("Console", &console))
+	{
+		ImGui::TextUnformatted(textBuffer.begin());
+	}
+
 	if (scrollBar)
 	{
 		ImGui::SetScrollHereX(1.0f);
@@ -15,4 +19,15 @@ bool ConsolePanel::Update(float dt)
 	scrollBar = false;
 	ImGui::End();
 	return true;
+}
+
+void ConsolePanel::AddLog(const char* fmt, ...)
+{
+	va_list args;
+	va_start(args, fmt);
+	textBuffer.appendfv(fmt, args);
+	textBuffer.appendfv("\n", args);
+	va_end(args);
+
+	scrollBar = true;
 }

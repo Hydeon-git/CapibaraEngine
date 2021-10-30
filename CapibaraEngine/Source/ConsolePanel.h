@@ -10,6 +10,9 @@ public:
 
 	bool Update(float dt) override;
 
+	void AddLog(const char* fmt, ...);
 private:
+	ImGuiTextBuffer textBuffer;
+
 	bool console, scrollBar;
 };

@@ -9,7 +9,7 @@
 
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
-ModuleFbxLoader::ModuleFbxLoader(Application* app, bool enabled) : Module(app, enabled)
+ModuleFbxLoader::ModuleFbxLoader(bool enabled) : Module(enabled)
 {
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);

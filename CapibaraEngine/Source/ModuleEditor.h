@@ -12,7 +12,7 @@ using namespace std;
 class ModuleEditor : public Module
 {
 public:
-	ModuleEditor(Application* app, bool start_enabled = true);
+	ModuleEditor(bool start_enabled = true);
 	~ModuleEditor();
 
 	bool Start() override;
@@ -32,6 +32,8 @@ public:
 	vector<float> fps_log;
 	vector<float> ms_log;
 
-private:
 	ConsolePanel consolePanel;
+
+private:
+	
 };

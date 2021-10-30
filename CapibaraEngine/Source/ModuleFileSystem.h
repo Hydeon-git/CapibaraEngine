@@ -32,7 +32,7 @@ class ModuleFileSystem : public Module
 {
 public:
 
-	ModuleFileSystem(Application* app, bool start_enabled = true, const char* game_path = nullptr);
+	ModuleFileSystem(bool start_enabled = true, const char* game_path = nullptr);
 
 	// Destructor
 	~ModuleFileSystem();

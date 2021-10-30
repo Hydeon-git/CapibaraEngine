@@ -16,7 +16,7 @@
 class ModuleFbxLoader : public Module
 {
 public:
-	ModuleFbxLoader(Application* app, bool enabled = true);
+	ModuleFbxLoader(bool enabled = true);
 	~ModuleFbxLoader();
 
 	void LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec);

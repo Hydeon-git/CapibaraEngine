@@ -9,7 +9,7 @@
 
 using namespace std;
 
-ModuleFileSystem::ModuleFileSystem(Application* app, bool start_enabled, const char* gamePath) : Module(app, start_enabled)
+ModuleFileSystem::ModuleFileSystem(bool start_enabled, const char* gamePath) : Module(start_enabled)
 {
 	// Needs to be created before Init so other modules can use it
 	char* base_path = SDL_GetBasePath();

@@ -3,14 +3,14 @@
 
 Application::Application()
 {
-	window = new ModuleWindow(this);
-	input = new ModuleInput(this);
-	sceneIntro = new ModuleSceneIntro(this, true);
-	editor = new ModuleEditor(this, true);
-	fileSystem = new ModuleFileSystem(this, true);
-	fbxLoader = new ModuleFbxLoader(this, true);
-	renderer3D = new ModuleRenderer3D(this);
-	camera = new ModuleCamera3D(this);
+	window = new ModuleWindow();
+	input = new ModuleInput();
+	sceneIntro = new ModuleSceneIntro(true);
+	editor = new ModuleEditor(true);
+	fileSystem = new ModuleFileSystem(true);
+	fbxLoader = new ModuleFbxLoader(true);
+	renderer3D = new ModuleRenderer3D();
+	camera = new ModuleCamera3D();
 
 	AddModule(window);
 	AddModule(camera);

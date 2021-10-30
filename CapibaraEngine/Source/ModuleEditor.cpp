@@ -9,7 +9,7 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 
-ModuleEditor::ModuleEditor(Application* app, bool start_enabled) : Module(app, start_enabled) 
+ModuleEditor::ModuleEditor(bool start_enabled) : Module(start_enabled) 
 {
 	window = true;
 	windowHelp = false;
