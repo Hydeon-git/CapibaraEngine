@@ -58,6 +58,17 @@ public:
 		return mouse_y_motion;
 	}
 
+	void GetMousePosition(int& x, int& y) const
+	{
+		x = mouse_x;
+		y = mouse_y;
+	}
+	void GetMouseMotion(int& x, int& y) const
+	{
+		x = mouse_x_motion;
+		y = mouse_y_motion;
+	}
+
 private:
 	KEY_STATE* keyboard;
 	KEY_STATE mouse_buttons[MAX_MOUSE_BUTTONS];

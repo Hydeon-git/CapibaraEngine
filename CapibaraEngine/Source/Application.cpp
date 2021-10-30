@@ -14,7 +14,6 @@ Application::Application()
 	renderer3D = new ModuleRenderer3D(this);
 	camera = new ModuleCamera3D(this);
 
-	// System Modules
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);	
