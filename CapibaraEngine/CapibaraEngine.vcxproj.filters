@@ -73,6 +73,9 @@
     <Filter Include="Sources\GameObject\Components">
       <UniqueIdentifier>{b007e451-9b2a-4d7e-8c24-1724cb3073cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Basic Shapes">
+      <UniqueIdentifier>{3125fc80-2da9-48ba-9505-d204811641de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -624,6 +627,9 @@
     <ClInclude Include="External\imgui\imstb_truetype.h">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Source\PrimitiveCube.h">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -853,6 +859,9 @@
     </ClCompile>
     <ClCompile Include="External\imgui\imgui_widgets.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PrimitiveCube.cpp">
+      <Filter>Sources\Basic Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

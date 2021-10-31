@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 
+#include "PrimitiveCube.h"
 #include "MeshComponent.h"
 
 class EngineScene : public Module
@@ -18,6 +19,6 @@ public:
 	bool PostUpdate(float dt) override;
 	bool CleanUp() override;
 
-
+	PrimitiveCube* cube;
 	std::vector<MeshComponent> meshData;
 };

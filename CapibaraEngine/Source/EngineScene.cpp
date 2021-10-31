@@ -5,7 +5,10 @@
 #include "ModuleInput.h"
 #include "ModuleFbxLoader.h"
 
-EngineScene::EngineScene(bool start_enabled) : Module(start_enabled) {}
+EngineScene::EngineScene(bool start_enabled) : Module(start_enabled) 
+{
+	
+}
 EngineScene::~EngineScene() {}
 
 // Load assets
@@ -17,7 +20,7 @@ bool EngineScene::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	App->fbxLoader->LoadFile("Assets/warrior.fbx", meshData);
+	App->fbxLoader->LoadFile("Assets/Bitcoin.fbx", meshData);
 	
 	return ret;
 }
@@ -37,6 +40,7 @@ bool EngineScene::Draw()
 	{
 		meshData[i].DrawMesh();
 	}
+	cube->DrawCube();
 
 	return true;
 }
