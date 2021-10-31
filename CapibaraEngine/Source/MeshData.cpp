@@ -20,11 +20,14 @@ void MeshData::CreateBuffers()
 	glGenBuffers(1, &id_index);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * num_index, index, GL_STATIC_DRAW);	
+}
 
+void MeshData::CreateTextureBuffer()
+{
 	// Textures
 	glGenBuffers(1, &id_texture);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_texture);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * num_index, textures, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * num_vertex * 2, textures, GL_STATIC_DRAW);
 }
 
 bool MeshData::DrawMesh()

@@ -17,7 +17,6 @@
 
 // Forward Declaration for loaders
 class ModuleFbxLoader;
-class ModuleTextureLoader;
 
 class Application
 {
@@ -28,7 +27,6 @@ public:
 	ModuleEditor* editor;
 	ModuleFileSystem* fileSystem;
 	ModuleFbxLoader* fbxLoader;
-	ModuleTextureLoader* textureLoader;
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 

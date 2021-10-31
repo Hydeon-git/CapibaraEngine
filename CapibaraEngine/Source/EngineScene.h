@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 
-#include "MeshData.h"
+class MeshData;
 
 class EngineScene : public Module
 {

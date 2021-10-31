@@ -9,7 +9,6 @@ class ModuleTextureLoader : public Module
 public:
 	ModuleTextureLoader(Application* app, bool enabled = true);
 	~ModuleTextureLoader();
-
-	void LoadTexture(const char* texturePath);
-	bool CleanUp() override;
+		
+	bool CleanUp() override;	
 };

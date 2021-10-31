@@ -615,9 +615,6 @@
     <ClInclude Include="External\deviL\include\ilut_config.h">
       <Filter>Sources\Tools\DeviL</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ModuleTextureLoader.h">
-      <Filter>Sources\Components</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -843,9 +840,6 @@
       <Filter>Sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Source\MeshData.cpp">
-      <Filter>Sources\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\ModuleTextureLoader.cpp">
       <Filter>Sources\Components</Filter>
     </ClCompile>
   </ItemGroup>

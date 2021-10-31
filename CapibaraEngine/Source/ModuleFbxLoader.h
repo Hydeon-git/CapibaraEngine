@@ -15,5 +15,6 @@ public:
 	~ModuleFbxLoader();
 
 	void LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec);
+	void LoadTexture(const char* filePath, std::vector<MeshData>& meshDataVec);
 	bool CleanUp() override;
 };

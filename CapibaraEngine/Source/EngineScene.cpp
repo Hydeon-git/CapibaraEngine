@@ -4,7 +4,6 @@
 #include "EngineScene.h"
 #include "ModuleInput.h"
 #include "ModuleFbxLoader.h"
-#include "ModuleTextureLoader.h"
 
 EngineScene::EngineScene(Application* app, bool start_enabled) : Module(app, start_enabled) {}
 EngineScene::~EngineScene() {}
@@ -19,7 +18,7 @@ bool EngineScene::Start()
 	App->camera->LookAt(vec3(0, 0, 0));
 
 	App->fbxLoader->LoadFile("Assets/BakerHouse.fbx", meshData);
-	App->textureLoader->LoadTexture("Textures/bakeHouse.png");
+	App->fbxLoader->LoadTexture("Textures/bakeHouse.png", meshData);
 	
 	return ret;
 }

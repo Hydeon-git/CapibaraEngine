@@ -13,6 +13,12 @@
 #include "postprocess.h"
 #pragma comment (lib, "assimp-vc142-mt.lib")
 
+// DeviL
+#include "il.h"
+#include "ilu.h"
+#include "ilut.h"
+#include "devil_cpp_wrapper.hpp"
+
 ModuleFbxLoader::ModuleFbxLoader(Application* app, bool enabled) : Module(app, enabled)
 {
 	struct aiLogStream stream;
@@ -64,12 +70,51 @@ void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& mesh
 					}
 				}
 			}
-			meshData.CreateBuffers();			
+			meshData.CreateBuffers();
+			meshData.CreateTextureBuffer();
 		}
 		aiReleaseImport(scene);
 	}
 	else
 	{
 		LOG("Error loading scene % s", filePath);
+	}
+}
+
+void ModuleFbxLoader::LoadTexture(const char* texturePath, std::vector<MeshData>& meshDataVec)
+{
+	// Setup and load image with DeviL
+	ILuint imageTexture;
+	ilGenImages(1, &imageTexture);
+	ilBindImage(imageTexture);
+	if (ilLoadImage(texturePath))
+	{
+		// Get image info
+		ILuint width, height;
+		width = ilGetInteger(IL_IMAGE_WIDTH);
+		height = ilGetInteger(IL_IMAGE_HEIGHT);
+		ILubyte* data = ilGetData();
+
+		for (int i = 0; i < meshDataVec.size(); i++)
+		{
+			MeshData& meshData = meshDataVec[i];
+
+
+			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+			glGenTextures(1, &meshData.id_texture);
+			glBindTexture(GL_TEXTURE_2D, meshData.id_texture);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+			meshData.id_texture = ilutGLBindTexImage();
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, 0);
+
+		}
+
+		ilDeleteImages(1, &imageTexture);
 	}
 }
