@@ -910,5 +910,8 @@
     <None Include="External\deviL\include\stamp-h.in">
       <Filter>Sources\Tools\DeviL</Filter>
     </None>
+    <None Include="External\imgui\.editorconfig">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </None>
   </ItemGroup>
 </Project>

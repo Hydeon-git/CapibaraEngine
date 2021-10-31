@@ -356,6 +356,7 @@
     <None Include="External\assimp\include\vector3.inl" />
     <None Include="External\deviL\include\config.h.win" />
     <None Include="External\deviL\include\stamp-h.in" />
+    <None Include="External\imgui\.editorconfig" />
     <None Include="External\mathgeolib\src\Geometry\KDTree.inl" />
     <None Include="External\mathgeolib\src\Geometry\QuadTree.inl" />
     <None Include="External\mathgeolib\src\Geometry\TriangleMesh_IntersectRay_AVX.inl" />
