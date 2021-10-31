@@ -170,7 +170,7 @@ bool ModuleRenderer3D::PreUpdate(float dt)
 bool ModuleRenderer3D::Draw()
 {
 	bool ret = true;
-	
+	DrawElementsCube();
 	return true;
 }
 
@@ -180,9 +180,8 @@ bool ModuleRenderer3D::PostUpdate(float dt)
 	// Imgui render
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-	//DrawElementsCube();
-	//DrawElementsSphere();
+		
+	
 	
 	SDL_GL_SwapWindow(App->window->window);
 	return true;
@@ -214,76 +213,6 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-}
-
-
-void ModuleRenderer3D::DrawDirectCube()
-{
-	GLfloat v0[3] = { 1.0f, 1.0f, 0.0f };
-	GLfloat v1[3] = { 0.0f, 1.0f, 0.0f };
-	GLfloat v2[3] = { 0.0f, 0.0f, 0.0f };
-	GLfloat v3[3] = { 1.0f, 0.0f, 0.0f };
-	GLfloat v4[3] = { 1.0f, 0.0f,-1.0f };
-	GLfloat v5[3] = { 1.0f, 1.0f,-1.0f };
-	GLfloat v6[3] = { 0.0f, 1.0f,-1.0f };
-	GLfloat v7[3] = { 0.0f, 0.0f,-1.0f };
-
-	glBegin(GL_TRIANGLES);  // draw a cube with 12 triangles
-		// front face =================
-	glVertex3fv(v0);    // v0-v1-v2
-	glVertex3fv(v1);
-	glVertex3fv(v2);
-
-	glVertex3fv(v2);    // v2-v3-v0
-	glVertex3fv(v3);
-	glVertex3fv(v0);
-
-	// right face =================
-	glVertex3fv(v0);    // v0-v3-v4
-	glVertex3fv(v3);
-	glVertex3fv(v4);
-
-	glVertex3fv(v4);    // v4-v5-v0
-	glVertex3fv(v5);
-	glVertex3fv(v0);
-
-	// top face ===================
-	glVertex3fv(v0);    // v0-v5-v6
-	glVertex3fv(v5);
-	glVertex3fv(v6);
-
-	glVertex3fv(v6);    // v6-v1-v0
-	glVertex3fv(v1);
-	glVertex3fv(v0);
-
-	// back face ===================
-	glVertex3fv(v7);
-	glVertex3fv(v6);
-	glVertex3fv(v5);
-
-	glVertex3fv(v5);
-	glVertex3fv(v4);
-	glVertex3fv(v7);
-
-	// left face ===================
-	glVertex3fv(v7);
-	glVertex3fv(v2);
-	glVertex3fv(v1);
-
-	glVertex3fv(v1);
-	glVertex3fv(v6);
-	glVertex3fv(v7);
-
-	// bottom face ===================
-	glVertex3fv(v7);
-	glVertex3fv(v4);
-	glVertex3fv(v3);
-
-	glVertex3fv(v3);
-	glVertex3fv(v2);
-	glVertex3fv(v7);
-
-	glEnd();
 }
 
 void ModuleRenderer3D::DrawElementsCube()

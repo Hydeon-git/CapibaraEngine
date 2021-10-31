@@ -44,6 +44,10 @@
     <OutDir>$(ProjectDir)Build\$(Configuration)</OutDir>
     <IntDir>$(ProjectDir)Build\$(Configuration)\Obj\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)Build\$(Configuration)</OutDir>
+    <IntDir>$(ProjectDir)Build\$(Configuration)\Obj\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -71,6 +75,7 @@
       <SDLCheck>false</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)External\glew\include;$(ProjectDir)External\mathgeolib;$(ProjectDir)External\imgui;$(ProjectDir)External\SDL\include;$(ProjectDir)External\Parson;$(ProjectDir)External\mmgr;$(ProjectDir)External\assimp\include;$(ProjectDir)External\deviL\include;$(ProjectDir)External\PhysFS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,6 +83,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalLibraryDirectories>$(ProjectDir)External\glew\libx86;$(ProjectDir)External\SDL\libx86;$(ProjectDir)External\assimp\libx86;$(ProjectDir)External\deviL\libx86;$(ProjectDir)External\PhysFS\libx86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;SDL2main.lib;SDL2.lib;assimp-vc142-mt.lib;physfs.lib;DevIL.lib;ILU.lib;ILUT.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

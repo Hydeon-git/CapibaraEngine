@@ -6,8 +6,6 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
-
-
 void MeshComponent::CreateMeshBuffers()
 {
 	// Initialization of the vertex and index from the mesh data
