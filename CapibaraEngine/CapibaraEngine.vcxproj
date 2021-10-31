@@ -245,6 +245,7 @@
     <ClInclude Include="External\PhysFS\include\physfs.h" />
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Color.h" />
+    <ClInclude Include="Source\ConfigurationPanel.h" />
     <ClInclude Include="Source\ConsolePanel.h" />
     <ClInclude Include="Source\ModuleFbxLoader.h" />
     <ClInclude Include="Source\glmath.h" />
@@ -323,6 +324,7 @@
     <ClCompile Include="External\parson\tests.c" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Color.cpp" />
+    <ClCompile Include="Source\ConfigurationPanel.cpp" />
     <ClCompile Include="Source\ConsolePanel.cpp" />
     <ClCompile Include="Source\ModuleFbxLoader.cpp" />
     <ClCompile Include="Source\glmath.cpp" />

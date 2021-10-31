@@ -615,6 +615,9 @@
     <ClInclude Include="External\deviL\include\ilut_config.h">
       <Filter>Sources\Tools\DeviL</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ConfigurationPanel.h">
+      <Filter>Sources\ImGui Panels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -841,6 +844,9 @@
     </ClCompile>
     <ClCompile Include="Source\MeshData.cpp">
       <Filter>Sources\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ConfigurationPanel.cpp">
+      <Filter>Sources\ImGui Panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

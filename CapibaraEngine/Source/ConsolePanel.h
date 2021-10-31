@@ -9,7 +9,7 @@ public:
 	~ConsolePanel();
 
 	bool Update(float dt) override;
-
+	void ClearConsole();
 	void AddLog(const char* fmt, ...);
 private:
 	ImGuiTextBuffer textBuffer;

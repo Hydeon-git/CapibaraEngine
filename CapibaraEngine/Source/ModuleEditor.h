@@ -5,6 +5,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "ConsolePanel.h"
+#include "ConfigurationPanel.h"
 
 using namespace std;
 
@@ -19,20 +20,11 @@ public:
 	bool Update(float dt) override;
 	bool CleanUp() override;
 
-	// Imgui Variables
-	bool window;
 	bool windowHelp;
 	bool demo;
 
-	bool fullscreen;
-	bool resizable;
-	bool borderless;
-	bool fullDesktop;
-
-	vector<float> fps_log;
-	vector<float> ms_log;
-
 	ConsolePanel consolePanel;
+	ConfigurationPanel configurationPanel;
 
 private:
 	

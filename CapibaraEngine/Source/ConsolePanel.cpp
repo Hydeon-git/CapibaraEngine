@@ -1,7 +1,12 @@
 #include "ConsolePanel.h"
 
-ConsolePanel::ConsolePanel(bool enabled) : Panels(enabled) {}
-ConsolePanel::~ConsolePanel() {}
+ConsolePanel::ConsolePanel(bool enabled) : Panels(enabled) 
+{
+	console = true;
+	scrollBar = false;
+	ClearConsole(); 
+}
+ConsolePanel::~ConsolePanel() { ClearConsole(); }
 
 
 bool ConsolePanel::Update(float dt)
@@ -30,4 +35,9 @@ void ConsolePanel::AddLog(const char* fmt, ...)
 	va_end(args);
 
 	scrollBar = true;
+}
+
+void ConsolePanel::ClearConsole()
+{
+	textBuffer.clear();
 }
