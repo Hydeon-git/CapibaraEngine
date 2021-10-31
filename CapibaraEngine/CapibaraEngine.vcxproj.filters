@@ -16,9 +16,6 @@
     <Filter Include="Sources\Helpers">
       <UniqueIdentifier>{121f8e6b-df36-4ab0-be0d-601ddfc9e503}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Modules\Game">
-      <UniqueIdentifier>{a48c5319-ca3f-423c-a951-cbf093994ac1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Tools\ImGui">
       <UniqueIdentifier>{f6971b9b-ca00-4d01-ab90-b99f26289195}</UniqueIdentifier>
     </Filter>
@@ -67,11 +64,14 @@
     <Filter Include="Sources\Tools\DeviL">
       <UniqueIdentifier>{104d2db2-7389-4c59-8aca-421051afa73f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Components">
-      <UniqueIdentifier>{b007e451-9b2a-4d7e-8c24-1724cb3073cc}</UniqueIdentifier>
+    <Filter Include="Sources\Modules\Scene">
+      <UniqueIdentifier>{a48c5319-ca3f-423c-a951-cbf093994ac1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Components\Mesh">
-      <UniqueIdentifier>{eef4b7d2-102c-4221-b1e3-af24e71c03c6}</UniqueIdentifier>
+    <Filter Include="Sources\GameObject">
+      <UniqueIdentifier>{04990396-ed7e-4b9d-9d69-ccc41b7ada4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\GameObject\Components">
+      <UniqueIdentifier>{b007e451-9b2a-4d7e-8c24-1724cb3073cc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,27 +96,6 @@
     <ClInclude Include="Source\Globals.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="External\imgui\imconfig.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_sdl.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_internal.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imstb_rectpack.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imstb_textedit.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imstb_truetype.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Timer.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
@@ -133,7 +112,7 @@
       <Filter>Sources\Containers</Filter>
     </ClInclude>
     <ClInclude Include="Source\EngineScene.h">
-      <Filter>Sources\Modules\Game</Filter>
+      <Filter>Sources\Modules\Scene</Filter>
     </ClInclude>
     <ClInclude Include="External\mathgeolib\src\MathBuildConfig.h">
       <Filter>Sources\Tools\MathGeoLib\src</Filter>
@@ -326,12 +305,6 @@
     </ClInclude>
     <ClInclude Include="External\parson\parson.h">
       <Filter>Sources\Tools\Parson</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_opengl3.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h">
-      <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Source\ConsolePanel.h">
       <Filter>Sources\ImGui Panels</Filter>
@@ -576,9 +549,6 @@
     <ClInclude Include="External\assimp\include\config.h">
       <Filter>Sources\Tools\Assimp</Filter>
     </ClInclude>
-    <ClInclude Include="Source\MeshComponent.h">
-      <Filter>Sources\Components\Mesh</Filter>
-    </ClInclude>
     <ClInclude Include="External\glew\include\eglew.h">
       <Filter>Sources\Tools\glew</Filter>
     </ClInclude>
@@ -621,6 +591,39 @@
     <ClInclude Include="Source\ModuleFbxLoader.h">
       <Filter>Sources\Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Source\MeshComponent.h">
+      <Filter>Sources\GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Component.h">
+      <Filter>Sources\GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imconfig.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_opengl3.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_impl_sdl.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imgui_internal.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imstb_rectpack.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imstb_textedit.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="External\imgui\imstb_truetype.h">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -641,24 +644,6 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="External\imgui\imgui.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_demo.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_draw.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_impl_sdl.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_tables.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_widgets.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
     <ClCompile Include="Source\log.cpp">
       <Filter>Sources\Tools</Filter>
     </ClCompile>
@@ -678,7 +663,7 @@
       <Filter>Sources\Containers</Filter>
     </ClCompile>
     <ClCompile Include="Source\EngineScene.cpp">
-      <Filter>Sources\Modules\Game</Filter>
+      <Filter>Sources\Modules\Scene</Filter>
     </ClCompile>
     <ClCompile Include="External\mathgeolib\src\Algorithm\Random\LCG.cpp">
       <Filter>Sources\Tools\MathGeoLib\src\Algorithm</Filter>
@@ -833,23 +818,41 @@
     <ClCompile Include="External\parson\tests.c">
       <Filter>Sources\Tools\Parson</Filter>
     </ClCompile>
-    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ConsolePanel.cpp">
       <Filter>Sources\ImGui Panels</Filter>
     </ClCompile>
     <ClCompile Include="Source\ModuleFileSystem.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\MeshComponent.cpp">
-      <Filter>Sources\Components\Mesh</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ConfigurationPanel.cpp">
       <Filter>Sources\ImGui Panels</Filter>
     </ClCompile>
     <ClCompile Include="Source\ModuleFbxLoader.cpp">
       <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MeshComponent.cpp">
+      <Filter>Sources\GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_demo.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_draw.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_impl_sdl.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_tables.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="External\imgui\imgui_widgets.cpp">
+      <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

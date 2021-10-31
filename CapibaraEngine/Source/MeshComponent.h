@@ -1,12 +1,14 @@
 #pragma once
 #include "Globals.h"
+#include "Component.h"
 
-class MeshComponent
+class MeshComponent : public Component
 {
 public:
 	// Mesh Buffers ID
 	uint id_index = 0; // Index in VRAM
 	uint id_vertex = 0; // Unique vertex in VRAM
+	uint id_texture = 0; // Unique vertex in VRAM
 
 	// Mesh Buffers Size
 	uint num_index = 0;
@@ -24,10 +26,4 @@ public:
 	// Mesh Functions
 	void CreateMeshBuffers();
 	bool DrawMesh();
-
-	// Texture Functions	
-	void CreateTextureBuffers(const void *checkerImage);
-
-	uint textureid = 0;
-	uint buffertextureid = 0;
 };

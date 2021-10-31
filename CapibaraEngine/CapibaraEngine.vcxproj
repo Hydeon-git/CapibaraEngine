@@ -245,6 +245,7 @@
     <ClInclude Include="External\PhysFS\include\physfs.h" />
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Color.h" />
+    <ClInclude Include="Source\Component.h" />
     <ClInclude Include="Source\ConfigurationPanel.h" />
     <ClInclude Include="Source\ConsolePanel.h" />
     <ClInclude Include="Source\ModuleFbxLoader.h" />

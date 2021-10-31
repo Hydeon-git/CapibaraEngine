@@ -73,8 +73,7 @@ void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshComponent>&
 					}
 				}
 			}
-			meshData.CreateMeshBuffers();
-			meshData.CreateTextureBuffers(checkerImage);			
+			meshData.CreateMeshBuffers();	
 		}
 		aiReleaseImport(scene);
 	}
