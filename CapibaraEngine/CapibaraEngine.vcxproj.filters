@@ -64,11 +64,14 @@
     <Filter Include="Sources\Tools\PhysFS">
       <UniqueIdentifier>{f2de4004-06d3-4e37-856e-3f8f11531391}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Mesh">
-      <UniqueIdentifier>{eef4b7d2-102c-4221-b1e3-af24e71c03c6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Tools\DeviL">
       <UniqueIdentifier>{104d2db2-7389-4c59-8aca-421051afa73f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Components">
+      <UniqueIdentifier>{b007e451-9b2a-4d7e-8c24-1724cb3073cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Components\Mesh">
+      <UniqueIdentifier>{eef4b7d2-102c-4221-b1e3-af24e71c03c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +132,7 @@
     <ClInclude Include="Source\glmath.h">
       <Filter>Sources\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ModuleSceneIntro.h">
+    <ClInclude Include="Source\EngineScene.h">
       <Filter>Sources\Modules\Game</Filter>
     </ClInclude>
     <ClInclude Include="External\mathgeolib\src\MathBuildConfig.h">
@@ -573,11 +576,8 @@
     <ClInclude Include="External\assimp\include\config.h">
       <Filter>Sources\Tools\Assimp</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ModuleFbxLoader.h">
-      <Filter>Sources\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\MeshData.h">
-      <Filter>Sources\Mesh</Filter>
+    <ClInclude Include="Source\MeshComponent.h">
+      <Filter>Sources\Components\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="External\glew\include\eglew.h">
       <Filter>Sources\Tools\glew</Filter>
@@ -617,6 +617,9 @@
     </ClInclude>
     <ClInclude Include="Source\ConfigurationPanel.h">
       <Filter>Sources\ImGui Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ModuleFbxLoader.h">
+      <Filter>Sources\Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -674,7 +677,7 @@
     <ClCompile Include="Source\glmath.cpp">
       <Filter>Sources\Containers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ModuleSceneIntro.cpp">
+    <ClCompile Include="Source\EngineScene.cpp">
       <Filter>Sources\Modules\Game</Filter>
     </ClCompile>
     <ClCompile Include="External\mathgeolib\src\Algorithm\Random\LCG.cpp">
@@ -839,14 +842,14 @@
     <ClCompile Include="Source\ModuleFileSystem.cpp">
       <Filter>Sources\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ModuleFbxLoader.cpp">
-      <Filter>Sources\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\MeshData.cpp">
-      <Filter>Sources\Mesh</Filter>
+    <ClCompile Include="Source\MeshComponent.cpp">
+      <Filter>Sources\Components\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="Source\ConfigurationPanel.cpp">
       <Filter>Sources\ImGui Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleFbxLoader.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

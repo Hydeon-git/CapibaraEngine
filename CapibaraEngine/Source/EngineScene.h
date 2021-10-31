@@ -4,13 +4,13 @@
 #include "Module.h"
 #include "Globals.h"
 
-#include "MeshData.h"
+#include "MeshComponent.h"
 
-class ModuleSceneIntro : public Module
+class EngineScene : public Module
 {
 public:
-	ModuleSceneIntro(bool start_enabled = true);
-	~ModuleSceneIntro();
+	EngineScene(bool start_enabled = true);
+	~EngineScene();
 
 	bool Start() override;
 	bool Update(float dt) override;
@@ -19,5 +19,5 @@ public:
 	bool CleanUp() override;
 
 
-	std::vector<MeshData> meshData;
+	std::vector<MeshComponent> meshData;
 };

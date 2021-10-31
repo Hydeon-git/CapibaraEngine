@@ -7,7 +7,7 @@
 #include "Module.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
-#include "ModuleSceneIntro.h"
+#include "EngineScene.h"
 #include "ModuleEditor.h"
 #include "ModuleFileSystem.h"
 #include "ModuleRenderer3D.h"
@@ -22,7 +22,7 @@ class Application
 public:
 	ModuleWindow* window;
 	ModuleInput* input;
-	ModuleSceneIntro* sceneIntro;
+	EngineScene* engineScene;
 	ModuleEditor* editor;
 	ModuleFileSystem* fileSystem;
 	ModuleFbxLoader* fbxLoader;

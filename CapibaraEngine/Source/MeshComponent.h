@@ -1,7 +1,7 @@
 #pragma once
 #include "Globals.h"
 
-class MeshData
+class MeshComponent
 {
 public:
 	// Mesh Buffers ID

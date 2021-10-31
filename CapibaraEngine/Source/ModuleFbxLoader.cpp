@@ -23,7 +23,7 @@ bool ModuleFbxLoader::CleanUp()
 	return true;
 }
 
-void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& meshDataVec)
+void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshComponent>& meshDataVec)
 {
 	GLubyte checkerImage[256][256][4];
 	for (int i = 0; i < 256; i++) 
@@ -46,7 +46,7 @@ void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshData>& mesh
 		meshDataVec.resize(scene->mNumMeshes);
 		for (int i = 0; i < scene->mNumMeshes; i++)
 		{
-			MeshData& meshData = meshDataVec[i];
+			MeshComponent& meshData = meshDataVec[i];
 			aiMesh* sceneMesh = scene->mMeshes[i];			
 
 			meshData.num_meshes = scene->mNumMeshes;

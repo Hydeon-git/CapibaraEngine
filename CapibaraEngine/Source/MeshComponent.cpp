@@ -1,4 +1,4 @@
-#include "MeshData.h"
+#include "MeshComponent.h"
 
 // OpenGL
 #include "glew.h"
@@ -8,7 +8,7 @@
 
 
 
-void MeshData::CreateMeshBuffers()
+void MeshComponent::CreateMeshBuffers()
 {
 	// Initialization of the vertex and index from the mesh data
 	// Vertex
@@ -24,7 +24,7 @@ void MeshData::CreateMeshBuffers()
 	
 }
 
-void MeshData::CreateTextureBuffers(const void *checkerImage)
+void MeshComponent::CreateTextureBuffers(const void *checkerImage)
 {
 	// Textures
 	glGenBuffers(1, &buffertextureid);
@@ -44,7 +44,7 @@ void MeshData::CreateTextureBuffers(const void *checkerImage)
 	glEnable(GL_TEXTURE_2D);
 }
 
-bool MeshData::DrawMesh()
+bool MeshComponent::DrawMesh()
 {
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);

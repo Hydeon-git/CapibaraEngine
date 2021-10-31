@@ -5,29 +5,28 @@ Application::Application()
 {
 	window = new ModuleWindow();
 	input = new ModuleInput();
-	sceneIntro = new ModuleSceneIntro(true);
+	engineScene = new EngineScene(true);
 	editor = new ModuleEditor(true);
 	fileSystem = new ModuleFileSystem(true);
 	fbxLoader = new ModuleFbxLoader(true);
 	renderer3D = new ModuleRenderer3D();
 	camera = new ModuleCamera3D();
 
+	// Core System
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);	
 
-	// System
+	// Management Modules
 	AddModule(editor);
 	AddModule(fileSystem);
 	AddModule(fbxLoader);
 
 	// Scene
-	AddModule(sceneIntro);
+	AddModule(engineScene);
 
 	// Renderer Last
 	AddModule(renderer3D);
-
-	
 }
 
 Application::~Application()

@@ -1,15 +1,15 @@
 #include "Globals.h"
 #include "Application.h"
 #include "Primitive.h"
-#include "ModuleSceneIntro.h"
+#include "EngineScene.h"
 #include "ModuleInput.h"
 #include "ModuleFbxLoader.h"
 
-ModuleSceneIntro::ModuleSceneIntro(bool start_enabled) : Module(start_enabled) {}
-ModuleSceneIntro::~ModuleSceneIntro() {}
+EngineScene::EngineScene(bool start_enabled) : Module(start_enabled) {}
+EngineScene::~EngineScene() {}
 
 // Load assets
-bool ModuleSceneIntro::Start()
+bool EngineScene::Start()
 {
 	LOG("Loading Intro assets");
 	bool ret = true;
@@ -22,7 +22,7 @@ bool ModuleSceneIntro::Start()
 	return ret;
 }
 
-bool ModuleSceneIntro::Update(float dt)
+bool EngineScene::Update(float dt)
 {
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
@@ -31,7 +31,7 @@ bool ModuleSceneIntro::Update(float dt)
 	return true;
 }
 
-bool ModuleSceneIntro::Draw()
+bool EngineScene::Draw()
 {
 	for (int i = 0; i < meshData.size(); i++)
 	{
@@ -41,13 +41,13 @@ bool ModuleSceneIntro::Draw()
 	return true;
 }
 
-bool ModuleSceneIntro::PostUpdate(float dt)
+bool EngineScene::PostUpdate(float dt)
 {		
 	return true;
 }
 
 // Unload assets
-bool ModuleSceneIntro::CleanUp()
+bool EngineScene::CleanUp()
 {
 	LOG("Unloading Intro scene");
 
