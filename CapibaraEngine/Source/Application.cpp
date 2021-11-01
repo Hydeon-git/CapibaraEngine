@@ -56,7 +56,7 @@ bool Application::Init()
 		ret = moduleList[i]->Start();
 	}
 	cappedMs = 1000 / 60;
-	ms_timer.Start();
+	msTimer.Start();
 	return ret;
 }
 
@@ -66,8 +66,8 @@ void Application::PrepareUpdate()
 	frameCount++;
 	lastSecFrameCount++;
 
-	dt = (float)ms_timer.Read() / 1000.0f;
-	ms_timer.Start();
+	dt = (float)msTimer.Read() / 1000.0f;
+	msTimer.Start();
 }
 
 // ---------------------------------------------
@@ -80,7 +80,7 @@ void Application::FinishUpdate()
 		lastSecFrameTime.Start();
 	}
 
-	unsigned int lastFrameMs = ms_timer.Read();
+	unsigned int lastFrameMs = msTimer.Read();
 
 	if ((cappedMs > 0) && (lastFrameMs < cappedMs))
 	{

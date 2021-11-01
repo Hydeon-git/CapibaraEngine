@@ -12,7 +12,5 @@ class PrimitiveSphere
 {	
 public:
 	void DrawSphere();
-
-
 };
 

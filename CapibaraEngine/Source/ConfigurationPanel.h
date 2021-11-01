@@ -16,7 +16,6 @@ public:
 	// Imgui Variables
 	bool window;
 	
-
 	bool fullscreen;
 	bool resizable;
 	bool borderless;

@@ -31,7 +31,7 @@ public:
 
 private:
 
-	Timer ms_timer;
+	Timer msTimer;
 	Timer lastSecFrameTime;
 
 	unsigned int lastSecFrameCount = 0;

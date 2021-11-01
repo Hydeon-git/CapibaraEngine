@@ -13,4 +13,3 @@ public:
 private:
 	bool hierarchy;
 };
-#pragma once

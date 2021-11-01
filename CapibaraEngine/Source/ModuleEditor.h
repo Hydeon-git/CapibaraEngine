@@ -9,10 +9,7 @@
 #include "HierarchyPanel.h"
 #include "InspectorPanel.h"
 
-
-
 using namespace std;
-
 
 class ModuleEditor : public Module
 {
@@ -27,13 +24,8 @@ public:
 	bool windowHelp;
 	bool demo;
 
-	
-
 	ConsolePanel consolePanel;
 	ConfigurationPanel configurationPanel;
 	HierarchyPanel hierarchyPanel;
-	InspectorPanel inspectorPanel;
-
-private:
-	
+	InspectorPanel inspectorPanel;	
 };

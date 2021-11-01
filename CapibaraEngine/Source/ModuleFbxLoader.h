@@ -13,12 +13,14 @@
 
 #include "MeshComponent.h"
 
+using namespace std;
+
 class ModuleFbxLoader : public Module
 {
 public:
 	ModuleFbxLoader(bool enabled = true);
 	~ModuleFbxLoader();
 
-	void LoadFile(const char* filePath, std::vector<MeshComponent>& meshDataVec);
+	void LoadFile(const char* filePath, vector<MeshComponent>& meshDataVec);
 	bool CleanUp() override;
 };

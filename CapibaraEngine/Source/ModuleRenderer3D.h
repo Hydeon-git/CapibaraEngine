@@ -23,10 +23,7 @@ public:
 	bool PostUpdate(float dt) override;
 	bool CleanUp() override;
 
-	void OnResize(int width, int height);
-	void DrawDirectCube();
-	void DrawElementsCube();
-	
+	void OnResize(int width, int height);	
 public:
 	std::vector<uint> indices;
 	std::vector<float> interleavedVertices;

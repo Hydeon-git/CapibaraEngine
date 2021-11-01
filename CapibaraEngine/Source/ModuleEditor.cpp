@@ -58,12 +58,6 @@ bool ModuleEditor::Update(float dt)
 			{
 				App->engineScene->pyramidDraw = true;
 			}
-			if (ImGui::MenuItem("Cylinder"))
-			{
-				App->engineScene->cylinderDraw = true;
-			}
-
-
 
 			ImGui::EndMenu();
 		}
