@@ -2,6 +2,8 @@
 #include "Globals.h"
 #include "Application.h"
 
+#include "mmgr.h"
+
 #include "SDL.h"
 
 ConfigurationPanel::ConfigurationPanel(bool enabled) : Panels(enabled) 
@@ -19,20 +21,20 @@ bool ConfigurationPanel::Update(float dt)
 {
 	if (window)
 	{
-		if (fps_log.size() >= 100)
+		if (fpsLog.size() >= 100)
 		{
-			for (int i = 0; i < fps_log.size() - 1; ++i)
+			for (int i = 0; i < fpsLog.size() - 1; ++i)
 			{
-				fps_log[i] = fps_log[i + 1];
-				ms_log[i] = ms_log[i + 1];
+				fpsLog[i] = fpsLog[i + 1];
+				msLog[i] = msLog[i + 1];
 			}
-			fps_log[fps_log.size() - 1] = App->GetFPSLimit();
-			ms_log[ms_log.size() - 1] = 1000.0f / App->GetFPSLimit();
+			fpsLog[fpsLog.size() - 1] = App->GetFPSLimit();
+			msLog[msLog.size() - 1] = 1000.0f / App->GetFPSLimit();
 		}
 		else
 		{
-			fps_log.emplace_back(App->GetFPSLimit());
-			ms_log.emplace_back(1000.0f / App->GetFPSLimit());
+			fpsLog.push_back(App->GetFPSLimit());
+			msLog.push_back(1000.0f / App->GetFPSLimit());
 		}
 
 		ImGui::Begin("Configuration", &window);
@@ -62,12 +64,39 @@ bool ConfigurationPanel::Update(float dt)
 			ImGui::SameLine(); ImGui::TextColored({ 255,255,0,255 }, "%d", framerate);
 
 			char title[25];
-			sprintf_s(title, 25, "Framerate: %.1f", fps_log[fps_log.size() - 1]);
-			ImGui::PlotHistogram("##framerate", &fps_log[0], fps_log.size(), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
+			sprintf_s(title, 25, "Framerate: %.1f", fpsLog[fpsLog.size() - 1]);
+			ImGui::PlotHistogram("##framerate", &fpsLog[0], fpsLog.size(), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
 			ImGui::Spacing();
-			sprintf_s(title, 25, "Milliseconds: %0.1f", ms_log[ms_log.size() - 1]);
-			ImGui::PlotHistogram("##milliseconds", &ms_log[0], ms_log.size(), 0, title, 0.0f, 40.0f, ImVec2(310, 100));
+			sprintf_s(title, 25, "Milliseconds: %0.1f", msLog[msLog.size() - 1]);
+			ImGui::PlotHistogram("##milliseconds", &msLog[0], msLog.size(), 0, title, 0.0f, 40.0f, ImVec2(310, 100));
 
+			sMStats stats = m_getMemoryStatistics();
+
+			if (memoryLog.size() == 100)
+			{
+				for (int i = 0; i < memoryLog.size() - 1; ++i)
+				{
+					memoryLog[i] = memoryLog[i + 1];
+				}				
+				memoryLog[memoryLog.size() - 1] = (float)stats.totalReportedMemory;
+			}
+			else
+				memoryLog.push_back((float)stats.totalReportedMemory);
+
+			ImGui::Spacing();
+			sprintf_s(title, 25, "Memory Consumption", memoryLog[memoryLog.size() - 1]);
+			ImGui::PlotHistogram("##memory", &memoryLog[0], memoryLog.size(), 0, title, 0.0f, (float)stats.peakReportedMemory * 1.2f, ImVec2(310, 100));
+
+			ImGui::Spacing();
+			ImGui::Text("Total Reported Mem: %i", stats.totalReportedMemory);
+			ImGui::Text("Total Actual Mem: %i", stats.totalActualMemory);
+			ImGui::Text("Peak Reported Mem: %i", stats.peakReportedMemory);
+			ImGui::Text("Peak Actual Mem: %i", stats.peakActualMemory);
+			ImGui::Text("Accumulated Reported Mem: %i", stats.accumulatedReportedMemory);
+			ImGui::Text("Accumulated Actual Mem: %i", stats.accumulatedActualMemory);
+			ImGui::Text("Accumulated Alloc Unit Count: %i", stats.accumulatedAllocUnitCount);
+			ImGui::Text("Total Alloc Unit Count: %i", stats.totalAllocUnitCount);
+			ImGui::Text("Peak Alloc Unit Count: %i", stats.peakAllocUnitCount);
 
 		}
 		if (ImGui::CollapsingHeader("Window"))
