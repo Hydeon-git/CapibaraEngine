@@ -78,9 +78,12 @@ bool ModuleRenderer3D::Init()
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+		
 		ImGui::StyleColorsDark();
 		ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
 		ImGui_ImplOpenGL3_Init();
+		
 
 		//Check for error
 		GLenum error = glGetError();
