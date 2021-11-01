@@ -7,6 +7,7 @@
 #include "ConsolePanel.h"
 #include "ConfigurationPanel.h"
 #include "HierarchyPanel.h"
+#include "InspectorPanel.h"
 
 
 
@@ -31,6 +32,7 @@ public:
 	ConsolePanel consolePanel;
 	ConfigurationPanel configurationPanel;
 	HierarchyPanel hierarchyPanel;
+	InspectorPanel inspectorPanel;
 
 private:
 	

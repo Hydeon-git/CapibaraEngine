@@ -10,19 +10,19 @@ void MeshComponent::CreateMeshBuffers()
 {
 	// Initialization of the vertex and index from the mesh data
 	// Vertex
-	glGenBuffers(1, &id_vertex);
-	glBindBuffer(GL_ARRAY_BUFFER, id_vertex);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * num_vertex * 3, vertex, GL_STATIC_DRAW);
+	glGenBuffers(1, &idVertex);
+	glBindBuffer(GL_ARRAY_BUFFER, idVertex);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * numVertex * 3, vertex, GL_STATIC_DRAW);
 
 	// Index
-	glGenBuffers(1, &id_index);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * num_index, index, GL_STATIC_DRAW);	
+	glGenBuffers(1, &idIndex);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idIndex);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * numIndex, index, GL_STATIC_DRAW);	
 
 	// Textures
-	glGenBuffers(1, &id_texture);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_texture);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * num_vertex * 2, textures, GL_STATIC_DRAW);
+	glGenBuffers(1, &idTexture);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idTexture);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * numVertex * 2, textures, GL_STATIC_DRAW);
 }
 
 bool MeshComponent::DrawMesh()
@@ -30,16 +30,16 @@ bool MeshComponent::DrawMesh()
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-	glBindBuffer(GL_ARRAY_BUFFER, id_vertex);
+	glBindBuffer(GL_ARRAY_BUFFER, idVertex);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
 
-	glBindBuffer(GL_ARRAY_BUFFER, id_texture);
+	glBindBuffer(GL_ARRAY_BUFFER, idTexture);
 	glTexCoordPointer(2, GL_FLOAT, 0, NULL);
 
-	glBindTexture(GL_TEXTURE_2D, id_texture);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id_index);
+	glBindTexture(GL_TEXTURE_2D, idTexture);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idIndex);
 
-	glDrawElements(GL_TRIANGLES, num_index, GL_UNSIGNED_INT, NULL);
+	glDrawElements(GL_TRIANGLES, numIndex, GL_UNSIGNED_INT, NULL);
 	
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);

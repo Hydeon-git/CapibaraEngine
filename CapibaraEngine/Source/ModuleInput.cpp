@@ -64,31 +64,31 @@ bool ModuleInput::PreUpdate(float dt)
 		}
 	}
 
-	Uint32 buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+	Uint32 buttons = SDL_GetMouseState(&mouseX, &mouseY);
 
-	mouse_x /= SCREEN_SIZE;
-	mouse_y /= SCREEN_SIZE;
-	mouse_z = 0;
+	mouseX /= SCREEN_SIZE;
+	mouseY /= SCREEN_SIZE;
+	mouseZ = 0;
 
 	for(int i = 0; i < 5; ++i)
 	{
 		if(buttons & SDL_BUTTON(i))
 		{
-			if(mouse_buttons[i] == KEY_IDLE)
-				mouse_buttons[i] = KEY_DOWN;
+			if(mouseButtons[i] == KEY_IDLE)
+				mouseButtons[i] = KEY_DOWN;
 			else
-				mouse_buttons[i] = KEY_REPEAT;
+				mouseButtons[i] = KEY_REPEAT;
 		}
 		else
 		{
-			if(mouse_buttons[i] == KEY_REPEAT || mouse_buttons[i] == KEY_DOWN)
-				mouse_buttons[i] = KEY_UP;
+			if(mouseButtons[i] == KEY_REPEAT || mouseButtons[i] == KEY_DOWN)
+				mouseButtons[i] = KEY_UP;
 			else
-				mouse_buttons[i] = KEY_IDLE;
+				mouseButtons[i] = KEY_IDLE;
 		}
 	}
 
-	mouse_x_motion = mouse_y_motion = 0;
+	mouseXMotion = mouseYMotion = 0;
 
 	bool quit = false;
 	SDL_Event e;
@@ -98,15 +98,15 @@ bool ModuleInput::PreUpdate(float dt)
 		switch(e.type)
 		{
 			case SDL_MOUSEWHEEL:
-			mouse_z = e.wheel.y;
+			mouseZ = e.wheel.y;
 			break;
 
 			case SDL_MOUSEMOTION:
-			mouse_x = e.motion.x / SCREEN_SIZE;
-			mouse_y = e.motion.y / SCREEN_SIZE;
+			mouseX = e.motion.x / SCREEN_SIZE;
+			mouseY = e.motion.y / SCREEN_SIZE;
 
-			mouse_x_motion = e.motion.xrel / SCREEN_SIZE;
-			mouse_y_motion = e.motion.yrel / SCREEN_SIZE;
+			mouseXMotion = e.motion.xrel / SCREEN_SIZE;
+			mouseYMotion = e.motion.yrel / SCREEN_SIZE;
 			break;
 
 			case SDL_QUIT:
@@ -115,10 +115,10 @@ bool ModuleInput::PreUpdate(float dt)
 
 			case (SDL_DROPFILE): 
 			{
-				dropped_filedir = e.drop.file;
-				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "File dropped on window", dropped_filedir, App->window->window);
-				App->fbxLoader->LoadFile(dropped_filedir, App->engineScene->meshData);
-				SDL_free(dropped_filedir);
+				droppedFileDir = e.drop.file;
+				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "File dropped on window", droppedFileDir, App->window->window);
+				App->fbxLoader->LoadFile(droppedFileDir, App->engineScene->meshData);
+				SDL_free(droppedFileDir);
 				break;
 			}
 

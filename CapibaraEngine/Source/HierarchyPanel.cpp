@@ -13,7 +13,7 @@ bool HierarchyPanel::Update(float dt)
 	{
 		if (ImGui::CollapsingHeader("Game Objects", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			//ImGui::TreePop();
+
 		}
 	}
 	ImGui::End();

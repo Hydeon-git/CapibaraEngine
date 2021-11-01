@@ -22,8 +22,9 @@ public:
 	bool borderless;
 	bool fullDesktop;
 
-	vector<float> fps_log;
-	vector<float> ms_log;
+	vector<float> fpsLog;
+	vector<float> msLog;
+	vector<float> memoryLog;
 
 private:
 

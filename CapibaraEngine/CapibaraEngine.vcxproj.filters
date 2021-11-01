@@ -76,6 +76,9 @@
     <Filter Include="Sources\Basic Shapes">
       <UniqueIdentifier>{3125fc80-2da9-48ba-9505-d204811641de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Tools\mmgr">
+      <UniqueIdentifier>{2681342d-2a49-4477-a35a-5c8e2157d17f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Module.h">
@@ -645,6 +648,15 @@
     <ClInclude Include="Source\PrimitiveSphere.h">
       <Filter>Sources\Basic Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="External\mmgr\mmgr.h">
+      <Filter>Sources\Tools\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="External\mmgr\nommgr.h">
+      <Filter>Sources\Tools\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InspectorPanel.h">
+      <Filter>Sources\ImGui Panels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -892,6 +904,12 @@
     </ClCompile>
     <ClCompile Include="Source\PrimitiveSphere.cpp">
       <Filter>Sources\Basic Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="External\mmgr\mmgr.cpp">
+      <Filter>Sources\Tools\mmgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InspectorPanel.cpp">
+      <Filter>Sources\ImGui Panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -119,9 +119,11 @@ bool ModuleEditor::Update(float dt)
 		ImGui::End();
 	}
 
-	ret = consolePanel.Update(dt);
-	ret = configurationPanel.Update(dt);
-	ret = hierarchyPanel.Update(dt);
+	consolePanel.Update(dt);
+	configurationPanel.Update(dt);
+	hierarchyPanel.Update(dt);
+	inspectorPanel.Update(dt);
+
 	return ret;
 }
 

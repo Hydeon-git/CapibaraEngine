@@ -20,7 +20,7 @@ bool EngineScene::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	//App->fbxLoader->LoadFile("Assets/Squid.fbx", meshData);
+	App->fbxLoader->LoadFile("Assets/BakerHouse.fbx", meshData);
 	
 	return ret;
 }
