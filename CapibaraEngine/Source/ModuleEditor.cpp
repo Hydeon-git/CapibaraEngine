@@ -87,7 +87,7 @@ bool ModuleEditor::Update(float dt)
 				"\n3rd Party Libraries used:"
 				"\n- SDL 2.0.16"
 				"\n- Glew 2.1"
-				"\n- ImGui 1.84"
+				"\n- ImGui 1.86 WIP"
 				"\n- MathGeoLib 1.5"
 				"\n- OpenGL 3.1"
 				"\n- Assimp 5.0.1"
@@ -104,6 +104,7 @@ bool ModuleEditor::Update(float dt)
 
 	ret = consolePanel.Update(dt);
 	ret = configurationPanel.Update(dt);
+	ret = hierarchyPanel.Update(dt);
 	return ret;
 }
 

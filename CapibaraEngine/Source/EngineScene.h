@@ -3,9 +3,12 @@
 #include <vector>
 #include "Module.h"
 #include "Globals.h"
+#include "GameObject.h"
 
 #include "PrimitiveCube.h"
 #include "MeshComponent.h"
+
+using namespace std;
 
 class EngineScene : public Module
 {
@@ -20,5 +23,10 @@ public:
 	bool CleanUp() override;
 
 	PrimitiveCube* cube;
-	std::vector<MeshComponent> meshData;
+	void CreateGameObject(GameObject* obj);
+
+	vector<MeshComponent> meshData;
+
+private:
+	vector<GameObject*> gameObjects;
 };

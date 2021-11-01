@@ -58,3 +58,8 @@ bool EngineScene::CleanUp()
 
 	return true;
 }
+
+void EngineScene::CreateGameObject(GameObject* obj)
+{
+	gameObjects.push_back(obj);
+}

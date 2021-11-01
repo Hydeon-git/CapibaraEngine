@@ -255,6 +255,8 @@
     <ClInclude Include="Source\Component.h" />
     <ClInclude Include="Source\ConfigurationPanel.h" />
     <ClInclude Include="Source\ConsolePanel.h" />
+    <ClInclude Include="Source\GameObject.h" />
+    <ClInclude Include="Source\HierarchyPanel.h" />
     <ClInclude Include="Source\ModuleFbxLoader.h" />
     <ClInclude Include="Source\glmath.h" />
     <ClInclude Include="Source\Globals.h" />
@@ -335,6 +337,8 @@
     <ClCompile Include="Source\Color.cpp" />
     <ClCompile Include="Source\ConfigurationPanel.cpp" />
     <ClCompile Include="Source\ConsolePanel.cpp" />
+    <ClCompile Include="Source\GameObject.cpp" />
+    <ClCompile Include="Source\HierarchyPanel.cpp" />
     <ClCompile Include="Source\ModuleFbxLoader.cpp" />
     <ClCompile Include="Source\glmath.cpp" />
     <ClCompile Include="Source\Light.cpp" />

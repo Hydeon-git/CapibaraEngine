@@ -6,6 +6,7 @@
 #include "Globals.h"
 #include "ConsolePanel.h"
 #include "ConfigurationPanel.h"
+#include "HierarchyPanel.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ public:
 
 	ConsolePanel consolePanel;
 	ConfigurationPanel configurationPanel;
+	HierarchyPanel hierarchyPanel;
 
 private:
 	

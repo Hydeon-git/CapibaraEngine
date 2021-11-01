@@ -1,14 +1,21 @@
 #pragma once
+class GameObject;
+
+enum ComponentType
+{
+	TRANSFORM,
+	MESH,
+	MATERIAL,
+	LIGHT,
+};
 
 class Component
 {
 private :
 	bool enabled;
+	GameObject* owner;
 
 public:
-
-	Component() {}
-	virtual ~Component() {}
 
 	virtual bool Enable() 
 	{

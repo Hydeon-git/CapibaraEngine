@@ -630,6 +630,12 @@
     <ClInclude Include="Source\PrimitiveCube.h">
       <Filter>Sources\Basic Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\HierarchyPanel.h">
+      <Filter>Sources\ImGui Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject.h">
+      <Filter>Sources\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -859,9 +865,6 @@
     </ClCompile>
     <ClCompile Include="External\imgui\imgui_widgets.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\PrimitiveCube.cpp">
-      <Filter>Sources\Basic Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
