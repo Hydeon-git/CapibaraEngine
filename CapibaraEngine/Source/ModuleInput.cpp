@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "ModuleFbxLoader.h"
 
 // Imgui
 #include "imgui.h"
@@ -112,11 +113,21 @@ bool ModuleInput::PreUpdate(float dt)
 			quit = true;
 			break;
 
+			case (SDL_DROPFILE): 
+			{
+				dropped_filedir = e.drop.file;
+				SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "File dropped on window", dropped_filedir, App->window->window);
+				App->fbxLoader->LoadFile(dropped_filedir, App->engineScene->meshData);
+				SDL_free(dropped_filedir);
+				break;
+			}
+
 			case SDL_WINDOWEVENT:
 			{
 				if(e.window.event == SDL_WINDOWEVENT_RESIZED)
 					App->renderer3D->OnResize(e.window.data1, e.window.data2);
 			}
+		
 		}
 	}
 

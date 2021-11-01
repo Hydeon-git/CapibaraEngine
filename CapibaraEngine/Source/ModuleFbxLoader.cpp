@@ -55,6 +55,7 @@ void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshComponent>&
 			meshData.vertex = new float[meshData.num_vertex * 3];
 			memcpy(meshData.vertex, sceneMesh->mVertices, sizeof(float) * meshData.num_vertex * 3);
 			LOG("New mesh with %d vertices", meshData.num_vertex);
+			
 
 			// Copy faces
 			if (sceneMesh->HasFaces())
@@ -73,7 +74,8 @@ void ModuleFbxLoader::LoadFile(const char* filePath, std::vector<MeshComponent>&
 					}
 				}
 			}
-			meshData.CreateMeshBuffers();	
+			meshData.CreateMeshBuffers();
+			meshDataVec.push_back(meshData);
 		}
 		aiReleaseImport(scene);
 	}
