@@ -1,4 +1,5 @@
-#include "PrimitiveCube.h"
+#include "PrimitiveSphere.h"
+#include <corecrt_math_defines.h>
 
 // OpenGL
 #include "glew.h"
@@ -6,78 +7,34 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
-void PrimitiveCube::DrawCube()
+void PrimitiveSphere::DrawSphere()
 {
-    // vertex array
-    GLfloat vertices1[] = { 1, 1, 1,  -1, 1, 1,  -1,-1, 1,      // v0-v1-v2 (front)
-                       -1,-1, 1,   1,-1, 1,   1, 1, 1,      // v2-v3-v0
+    double di = 0.02;
+    double dj = 0.04;
+    double du = di * 2 * M_PI;
+    double dv = dj * M_PI;
 
-                        1, 1, 1,   1,-1, 1,   1,-1,-1,      // v0-v3-v4 (right)
-                        1,-1,-1,   1, 1,-1,   1, 1, 1,      // v4-v5-v0
 
-                        1, 1, 1,   1, 1,-1,  -1, 1,-1,      // v0-v5-v6 (top)
-                       -1, 1,-1,  -1, 1, 1,   1, 1, 1,      // v6-v1-v0
+    for (double i = 0; i < 1.0; i += di)  //horizonal
+        for (double j = 0; j < 1.0; j += dj)  //vertical
+        {
+            double u = i * 2 * M_PI;      //0     to  2pi
+            double v = (j - 0.5) * M_PI;  //-pi/2 to pi/2
 
-                       -1, 1, 1,  -1, 1,-1,  -1,-1,-1,      // v1-v6-v7 (left)
-                       -1,-1,-1,  -1,-1, 1,  -1, 1, 1,      // v7-v2-v1
+            double  p[][3] = {
+                cos(v) * cos(u)      ,cos(v) * sin(u)       ,sin(v),
+                cos(v) * cos(u + du) ,cos(v) * sin(u + du)  ,sin(v),
+                cos(v + dv) * cos(u + du) ,cos(v + dv) * sin(u + du)  ,sin(v + dv),
+                cos(v + dv) * cos(u)      ,cos(v + dv) * sin(u)       ,sin(v + dv) };
 
-                       -1,-1,-1,   1,-1,-1,   1,-1, 1,      // v7-v4-v3 (bottom)
-                        1,-1, 1,  -1,-1, 1,  -1,-1,-1,      // v3-v2-v7
+            //normal
+            glNormal3d(cos(v + dv / 2) * cos(u + du / 2), cos(v + dv / 2) * sin(u + du / 2), sin(v + dv / 2));
 
-                        1,-1,-1,  -1,-1,-1,  -1, 1,-1,      // v4-v7-v6 (back)
-                       -1, 1,-1,   1, 1,-1,   1,-1,-1 };    // v6-v5-v4
-    // normal array
-    GLfloat normals1[] = { 0, 0, 1,   0, 0, 1,   0, 0, 1,      // v0-v1-v2 (front)
-                            0, 0, 1,   0, 0, 1,   0, 0, 1,      // v2-v3-v0
-
-                            1, 0, 0,   1, 0, 0,   1, 0, 0,      // v0-v3-v4 (right)
-                            1, 0, 0,   1, 0, 0,   1, 0, 0,      // v4-v5-v0
-
-                            0, 1, 0,   0, 1, 0,   0, 1, 0,      // v0-v5-v6 (top)
-                            0, 1, 0,   0, 1, 0,   0, 1, 0,      // v6-v1-v0
-
-                           -1, 0, 0,  -1, 0, 0,  -1, 0, 0,      // v1-v6-v7 (left)
-                           -1, 0, 0,  -1, 0, 0,  -1, 0, 0,      // v7-v2-v1
-
-                            0,-1, 0,   0,-1, 0,   0,-1, 0,      // v7-v4-v3 (bottom)
-                            0,-1, 0,   0,-1, 0,   0,-1, 0,      // v3-v2-v7
-
-                            0, 0,-1,   0, 0,-1,   0, 0,-1,      // v4-v7-v6 (back)
-                            0, 0,-1,   0, 0,-1,   0, 0,-1 };    // v6-v5-v4
-    // color array
-    GLfloat colors1[] = { 1, 1, 1,   1, 1, 0,   1, 0, 0,      // v0-v1-v2 (front)
-                            1, 0, 0,   1, 0, 1,   1, 1, 1,      // v2-v3-v0
-
-                            1, 1, 1,   1, 0, 1,   0, 0, 1,      // v0-v3-v4 (right)
-                            0, 0, 1,   0, 1, 1,   1, 1, 1,      // v4-v5-v0
-
-                            1, 1, 1,   0, 1, 1,   0, 1, 0,      // v0-v5-v6 (top)
-                            0, 1, 0,   1, 1, 0,   1, 1, 1,      // v6-v1-v0
-
-                            1, 1, 0,   0, 1, 0,   0, 0, 0,      // v1-v6-v7 (left)
-                            0, 0, 0,   1, 0, 0,   1, 1, 0,      // v7-v2-v1
-
-                            0, 0, 0,   0, 0, 1,   1, 0, 1,      // v7-v4-v3 (bottom)
-                            1, 0, 1,   1, 0, 0,   0, 0, 0,      // v3-v2-v7
-
-                            0, 0, 1,   0, 0, 0,   0, 1, 0,      // v4-v7-v6 (back)
-                            0, 1, 0,   0, 1, 1,   0, 0, 1 };    // v6-v5-v4
-
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glNormalPointer(GL_FLOAT, 0, normals1);
-    glColorPointer(3, GL_FLOAT, 0, colors1);
-    glVertexPointer(3, GL_FLOAT, 0, vertices1);
-
-    glPushMatrix();
-    glTranslatef(2, 2, 0);
-
-    glDrawArrays(GL_TRIANGLES, 0, 36);
-
-    glPopMatrix();
-
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
+            glBegin(GL_POLYGON);
+            glTexCoord2d(i, j);    glVertex3dv(p[0]);
+            glTexCoord2d(i + di, j);    glVertex3dv(p[1]);
+            glTexCoord2d(i + di, j + dj); glVertex3dv(p[2]);
+            glTexCoord2d(i, j + dj); glVertex3dv(p[3]);
+            glEnd();
+        }
 }

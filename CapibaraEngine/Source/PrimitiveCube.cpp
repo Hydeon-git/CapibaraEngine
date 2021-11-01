@@ -1,4 +1,5 @@
 #include "PrimitiveCube.h"
+#include <corecrt_math_defines.h>
 
 // OpenGL
 #include "glew.h"

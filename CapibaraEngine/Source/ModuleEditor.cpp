@@ -52,15 +52,15 @@ bool ModuleEditor::Update(float dt)
 			}
 			if (ImGui::MenuItem("Sphere"))
 			{
-				App->engineScene->cubeDraw = true;
+				App->engineScene->sphereDraw = true;
 			}
 			if (ImGui::MenuItem("Pyramid"))
 			{
-				App->engineScene->cubeDraw = true;
+				App->engineScene->pyramidDraw = true;
 			}
 			if (ImGui::MenuItem("Cylinder"))
 			{
-				App->engineScene->cubeDraw = true;
+				App->engineScene->cylinderDraw = true;
 			}
 
 

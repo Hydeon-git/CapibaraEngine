@@ -5,8 +5,13 @@
 #include "Globals.h"
 #include "GameObject.h"
 
-#include "PrimitiveCube.h"
 #include "MeshComponent.h"
+
+// Primitives
+#include "PrimitiveCube.h"
+#include "PrimitiveCylinder.h"
+#include "PrimitivePyramid.h"
+#include "PrimitiveSphere.h"
 
 using namespace std;
 
@@ -21,13 +26,19 @@ public:
 	bool Draw() override;
 	bool PostUpdate(float dt) override;
 	bool CleanUp() override;
-
-	PrimitiveCube* cube;
+		
 	void CreateGameObject(GameObject* obj);
 
 	vector<MeshComponent> meshData;
 
+	PrimitiveCube* cube;
+	PrimitiveCylinder* cylinder;
+	PrimitivePyramid* pyramid;
+	PrimitiveSphere* sphere;
 	bool cubeDraw = false;
+	bool cylinderDraw = false;
+	bool pyramidDraw = false;
+	bool sphereDraw = false;
 
 private:
 	vector<GameObject*> gameObjects;

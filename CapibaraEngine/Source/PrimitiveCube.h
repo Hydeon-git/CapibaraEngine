@@ -1,7 +1,6 @@
 #pragma once
 #include "Globals.h"
 #include <vector>
-#include <corecrt_math_defines.h>
 
 // OpenGL
 #include "glew.h"
@@ -13,7 +12,5 @@ class PrimitiveCube
 {	
 public:
 	void DrawCube();
-
-
 };
 
