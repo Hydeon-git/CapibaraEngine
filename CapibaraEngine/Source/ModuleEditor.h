@@ -8,6 +8,8 @@
 #include "ConfigurationPanel.h"
 #include "HierarchyPanel.h"
 
+
+
 using namespace std;
 
 
@@ -23,6 +25,8 @@ public:
 
 	bool windowHelp;
 	bool demo;
+
+	
 
 	ConsolePanel consolePanel;
 	ConfigurationPanel configurationPanel;

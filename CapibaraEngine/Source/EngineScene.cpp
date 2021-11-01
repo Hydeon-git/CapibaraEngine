@@ -40,7 +40,7 @@ bool EngineScene::Draw()
 	{
 		meshData[i].DrawMesh();
 	}
-	cube->DrawCube();
+	if(cubeDraw) cube->DrawCube();
 
 	return true;
 }

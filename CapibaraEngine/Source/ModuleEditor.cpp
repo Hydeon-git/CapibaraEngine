@@ -44,10 +44,27 @@ bool ModuleEditor::Update(float dt)
 			}
 			ImGui::EndMenu();
 		}
-		if (ImGui::BeginMenu("Edit"))
+		if (ImGui::BeginMenu("Basic Shapes"))
 		{
-			ImGui::MenuItem("Undo", "Ctrl + Z", &ret);
-			ImGui::MenuItem("Redo", "Ctrl + Y", &ret);
+			if (ImGui::MenuItem("Cube"))
+			{
+				App->engineScene->cubeDraw = true;
+			}
+			if (ImGui::MenuItem("Sphere"))
+			{
+				App->engineScene->cubeDraw = true;
+			}
+			if (ImGui::MenuItem("Pyramid"))
+			{
+				App->engineScene->cubeDraw = true;
+			}
+			if (ImGui::MenuItem("Cylinder"))
+			{
+				App->engineScene->cubeDraw = true;
+			}
+
+
+
 			ImGui::EndMenu();
 		}
 		

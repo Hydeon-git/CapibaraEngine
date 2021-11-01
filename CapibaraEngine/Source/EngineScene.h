@@ -27,6 +27,8 @@ public:
 
 	vector<MeshComponent> meshData;
 
+	bool cubeDraw = false;
+
 private:
 	vector<GameObject*> gameObjects;
 };
