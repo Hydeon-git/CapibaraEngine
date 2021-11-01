@@ -38,9 +38,9 @@ enum update_status
 #define VSYNC true
 
 // Folder Definition -------
-#define SETTINGS_FOLDER "/Settings/"
+//#define SETTINGS_FOLDER "/Settings/"
 #define ASSETS_FOLDER "/Assets/"
-#define TEXTURES_FOLDER "/Textures/"
+//#define TEXTURES_FOLDER "/Textures/"
 
 // Software Info -----------
 #define TITLE "Capibara Engine"

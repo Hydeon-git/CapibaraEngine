@@ -31,7 +31,7 @@ ModuleFileSystem::ModuleFileSystem(bool start_enabled, const char* gamePath) : M
 		LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
 
 	// Make sure standard paths exist
-	const char* dirs[] = { SETTINGS_FOLDER, ASSETS_FOLDER, TEXTURES_FOLDER };
+	const char* dirs[] = { /*SETTINGS_FOLDER,*/ ASSETS_FOLDER/*, TEXTURES_FOLDER */};
 
 	for (uint i = 0; i < sizeof(dirs)/sizeof(const char*); ++i)
 	{
