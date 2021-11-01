@@ -1,15 +1,15 @@
 # Capibara Engine
 ## Our Project
-Capibara Engine is a project developed in the subject 3D Motors for the Game Desing and Development Degree in CITM-UPC Univeristy.
+Capibara Engine is a project developed in the subject 3D Motors for the Game Design and Development Degree in CITM-UPC Univerisity.
 ## Team
 #### Arnau Bonada: https://github.com/arnaubonada
 #### Albert Pou: https://github.com/Hydeon-git
 
-## Intructions
+## Instructions
 ### Camera
-- WASD to move around the scene.
+- While Right clicking, WASD to move around the scene.
 - Mouse wheel for zoom in and zoom out.
-- Holding SHIT duplicates movement speed.
+- Holding SHIFT duplicates movement speed.
 
 ### Editor Windows
 - Console: The console LOGS the geometry loading process.
@@ -24,3 +24,4 @@ Capibara Engine is a project developed in the subject 3D Motors for the Game Des
 - Drag & Drop functionallity.
 - .fbx Objects can be loaded and be visible in the engine.
 - 3 different .fbx models included in the engine (/Assets folder).
+- BakerHouse is automatically loaded at the start.
