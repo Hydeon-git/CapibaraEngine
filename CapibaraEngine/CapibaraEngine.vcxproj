@@ -273,6 +273,9 @@
     <ClInclude Include="Source\Panels.h" />
     <ClInclude Include="Source\Primitive.h" />
     <ClInclude Include="Source\PrimitiveCube.h" />
+    <ClInclude Include="Source\PrimitiveCylinder.h" />
+    <ClInclude Include="Source\PrimitivePyramid.h" />
+    <ClInclude Include="Source\PrimitiveSphere.h" />
     <ClInclude Include="Source\Timer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -354,6 +357,9 @@
     <ClCompile Include="Source\ModuleWindow.cpp" />
     <ClCompile Include="Source\Primitive.cpp" />
     <ClCompile Include="Source\PrimitiveCube.cpp" />
+    <ClCompile Include="Source\PrimitiveCylinder.cpp" />
+    <ClCompile Include="Source\PrimitivePyramid.cpp" />
+    <ClCompile Include="Source\PrimitiveSphere.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>

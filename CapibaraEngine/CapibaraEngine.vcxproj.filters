@@ -636,6 +636,15 @@
     <ClInclude Include="Source\GameObject.h">
       <Filter>Sources\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="Source\PrimitiveCylinder.h">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PrimitivePyramid.h">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PrimitiveSphere.h">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ModuleCamera3D.cpp">
@@ -865,6 +874,24 @@
     </ClCompile>
     <ClCompile Include="External\imgui\imgui_widgets.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject.cpp">
+      <Filter>Sources\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\HierarchyPanel.cpp">
+      <Filter>Sources\ImGui Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PrimitiveCube.cpp">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PrimitiveCylinder.cpp">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PrimitivePyramid.cpp">
+      <Filter>Sources\Basic Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PrimitiveSphere.cpp">
+      <Filter>Sources\Basic Shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
